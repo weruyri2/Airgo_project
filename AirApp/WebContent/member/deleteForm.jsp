@@ -8,5 +8,40 @@
 </head>
 <body>
 
+	<%
+		String id = (String) session.getAttribute("id");
+	
+		if(id == null) {
+			response.sendRedirect("loginForm.jsp");
+		}
+	
+	%>
+	
+
+<jsp:include page="../inc/top.jsp"/>
+
+
+<jsp:include page="../inc/leftside.jsp" />
+
+<article id="center">
+ <p>main content</p>
+	<h2> 회원 탈퇴 </h2>
+	<fieldset>
+	  <legend> 정보 입력 </legend>
+	<form action="deletePro.jsp" method="post">
+	     아이디 : <input type="text" name="id" value="<%=id%>" readonly><br>
+	     비밀번호 : <input type="password" name="pass"><br>
+	     <input type="submit" value="회원 탈퇴">
+	  </form>	
+	</fieldset>
+</article>
+
+
+<aside id="right">
+ right - banner
+</aside>
+	
+
+
 </body>
 </html>

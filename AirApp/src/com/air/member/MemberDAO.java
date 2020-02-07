@@ -189,7 +189,8 @@ public class MemberDAO {
 		
 		return mb;
 		
-	}//getMember
+	}
+	//getMember
 	
 	
 	//updateMember
@@ -246,5 +247,65 @@ public class MemberDAO {
 		
 		return check;
 	}
+	//updateMember
+	
+	//deleteMember
+	public int deleteMember(String id, String pass) {
+		System.out.println("deleteMember");
+		int check = -1;
+		
+		try {
+			con = getConn();
+			
+			sql = "select * from member where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				if(pass.equals(rs.getString("pass"))){
+					System.out.println("비밀번호 동일");
+					
+					sql = "delete from member where id=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, id);
+					pstmt.executeUpdate();
+					
+					System.out.println("삭제 완료");
+					check=1;
+				}else{
+					System.out.println("비밀번호 오류");
+					check=0;
+				}
+			}else{
+				check=-1;
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		
+		return check;
+	}
+	//deleteMember
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

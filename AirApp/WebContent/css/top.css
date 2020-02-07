@@ -1,19 +1,42 @@
 @CHARSET "UTF-8";
 
-.login {
-	float:right;
+* {margin: 0; padding: 0;
 }
 
-nav ul {list-style: none;
-	border : 1px solid orange;
+header {border: 1px solid red;
+	height:150px;	
+}
+
+div#login {border : 1px solid pink;
+	float: right;
+	margin-right: 20px;
+	margin-top: 40px;/* 여백으로 위치조절 */
+
+}
+
+nav {
+	height: 50px; 
+	/* overflow: hidden; */
+	margin-top: 30px;
+	padding-top:10px; 
+	border : 1px solid red;
+	clear:both;
+}
+nav ul {
+	background-color: pink;
+	border: 1px solid #ff0;
 	overflow:hidden;
+	margin-left: 14px;
 	float:left;
 }
-nav li {border: 1px solid;
-	padding:0.5em;
-	margin-right:1em;
+nav li {border: 1px solid skyblue;
+	margin: 5px 10px;
 	float:left;
+}
+nav a {border: 1px solid #fff;
+	
 }
 nav li:HOVER {
 	background-color:#0cc;
 }
+

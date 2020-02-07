@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>회원 정보</title>
+<link href="../css/memainForm.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,11 +21,20 @@
 		<%
 	}
 %>
-	<h3><%=id %>님 환영합니다.</h3>
-	
-	<a href="../member/infoForm.jsp">회원 정보 조회</a>
-	<a href="../member/updateForm.jsp">회원 정보 수정</a>
-	<a href="">회원 정보 탈퇴</a>
-	
+
+<jsp:include page="../inc/top.jsp"/>
+
+
+<jsp:include page="../inc/leftside.jsp" />
+
+<article id="center">
+<p>main content</p>
+</article>
+
+
+<aside id="right">
+ right - banner
+</aside>
+
 </body>
 </html>

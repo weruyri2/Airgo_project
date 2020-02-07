@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -29,6 +30,12 @@
 
 	%>
 	
+<jsp:include page="../inc/top.jsp"/>
+
+<jsp:include page="../inc/leftside.jsp" />
+
+<article id="center">
+<p>main content</p>
 	 <table border="1">
     <tr>
       <td>아이디</td><td><%=mb.getId() %></td>
@@ -51,13 +58,18 @@
     <tr>
       <td>주소</td><td><%=mb.getAddress() %></td>
     </tr>
-    <tr>
-      <td>예약번호</td><td><%=mb.getPoket() %></td>
-    </tr>
+
     <tr>
       <td colspan="2"><a href="../main/memainForm.jsp"> 메인 페이지로 </a></td>
     </tr>
   </table>
+</article>
+
+
+<aside id="right">
+ right - banner
+</aside>
+	
   
 </body>
 </html>

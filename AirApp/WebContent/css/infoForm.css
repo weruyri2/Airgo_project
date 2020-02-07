@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+aside, article {height: 600px;
+ float: left;}
+
+aside#left {
+background-color: pink;
+width: 20%;}
+
+aside#left>div {border: 1px solid red; 
+ color: #fff;
+ height: 200px;	
+ margin: 10px 3%;
+ padding: 10px;
+ box-sizing: border-box;}
+ 
+article {
+background-color:orange;
+width: 70%;}
+ 
+aside#right {
+background-color:skyblue;
+width: 10%; }

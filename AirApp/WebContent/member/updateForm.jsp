@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>회원 정보 수정</title>
+<link href="../css/memainForm.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -36,7 +37,13 @@
      - 비밀번호 확인불가
      - 성별도 체크(성별의 정보가 없을경우 임의의 성별 체크)
    -->
+
+<jsp:include page="../inc/top.jsp"/>
    
+<jsp:include page="../inc/leftside.jsp" />
+
+<article id="center">
+<p>main content</p>
   <fieldset>
     <legend> 회원 정보 수정 </legend>
     
@@ -47,7 +54,7 @@
 	      주민번호* : <input type="text" name="jumin" value="<%=mb.getJumin()%>"><br>	        
 	      이메일* : <input type="text" name="email" value="<%=mb.getEmail()%>"><br>   
 	      전화번호* : <input type="text" name="phone" value="<%=mb.getPhone()%>"><br>   
-	      주소* : <input type="text" name="Address" value="<%=mb.getAddress()%>"><br>   
+	      주소* : <input type="text" name="address" value="<%=mb.getAddress()%>"><br>   
 	   <input type="submit" value="회원 정보 수정">   
     </form>  
 
@@ -55,6 +62,14 @@
   </fieldset>
   
   <h2> *표시된 항목은 데이터 중복X </h2>
-  
+</article>
+
+
+<aside id="right">
+ right - banner
+</aside>
+
 </body>
 </html>
+   
+  
