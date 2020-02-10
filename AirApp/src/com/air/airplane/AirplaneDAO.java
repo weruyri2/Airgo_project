@@ -3,10 +3,13 @@ package com.air.airplane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
 
 public class AirplaneDAO {
 	
@@ -46,7 +49,7 @@ public class AirplaneDAO {
 		try {
 			con = getConn();
 			
-			sql = "insert into airplane ('airname','depart','arrive','seat','start','end')"
+			sql = "insert into airplane (airname,depart,arrive,seat,start,end)"
 					+ " values (?,?,?,?,?,?)";
 			
 			pstmt = con.prepareStatement(sql);
@@ -68,5 +71,80 @@ public class AirplaneDAO {
 			closeDB();
 		}
 	}
+	
+	
+	public AirplaneBean getAirPlane() {
+		System.out.println("getAirPlane 호출");
+		
+		AirplaneBean ab = null;
+		
+		try {
+			con = getConn();
+			
+			sql = "select * from airplane";
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				ab = new AirplaneBean();
+				
+				ab.setAirname(rs.getString("airname"));
+				ab.setDepart(rs.getString("depart"));
+				ab.setArrive(rs.getString("arrive"));
+				ab.setSeat(rs.getInt("seat"));
+				ab.setStart(rs.getDate("start"));
+				ab.setEnd(rs.getDate("end"));
+				
+				System.out.println("비행기 정보 : " +ab);
+			}
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+
+		return ab;
+	}
+	
+	public ArrayList getAirplaneList() {
+	
+		ArrayList<AirplaneBean> airplaneList = new ArrayList<AirplaneBean>();
+
+			try {
+
+				sql = "select * from airplane";
+				pstmt = con.prepareStatement(sql);
+					
+				rs  = pstmt.executeQuery();
+				
+				while(rs.next()){
+					AirplaneBean ab = new AirplaneBean();
+					
+					ab.setAirname(rs.getString("airname"));
+					ab.setDepart(rs.getString("depart"));
+					ab.setArrive(rs.getString("arrive"));
+					ab.setSeat(rs.getInt("seat"));
+					ab.setStart(rs.getDate("start"));
+					ab.setEnd(rs.getDate("end"));
+					
+					airplaneList.add(ab);
+									
+				}
+				System.out.println("비행기 정보 검색 완료 ! ");
+					
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();				
+			}
+				
+		return airplaneList;
+	}
+	
 	
 }

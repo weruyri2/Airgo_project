@@ -8,7 +8,6 @@
 </head>
 <body>
 
-		
 	<form action="loginPro.jsp" method="post" name="loginform">
 	<fieldset>
 	<legend>로그인</legend>

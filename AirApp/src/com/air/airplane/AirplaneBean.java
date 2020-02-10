@@ -10,6 +10,7 @@ public class AirplaneBean {
 	private int seat;
 	private Date start;
 	private Date end;
+	
 	public String getAirname() {
 		return airname;
 	}
