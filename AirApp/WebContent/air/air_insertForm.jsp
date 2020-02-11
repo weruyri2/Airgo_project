@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<jsp:include page="../inc/top.jsp"/>
+
+<jsp:include page="../inc/air_leftside.jsp" />
+
+<article id="center">
+<p>main content</p>
+
 	<form action="air_insertPro.jsp" method="post" name="air" >
 	<fieldset>
 	 <legend>비행기 생성</legend>
@@ -40,5 +47,13 @@
 	</fieldset>
 	
 	</form>
+	
+	
+</article>
+
+
+<aside id="right">
+ right - banner
+</aside>
 
 </body>

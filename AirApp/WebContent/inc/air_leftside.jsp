@@ -16,8 +16,8 @@
 	<li><a href="../air/air_main.jsp">메인</a></li>
 	<li><a href="../air/air_insertForm.jsp">비행기 정보 생성</a></li>	
 	<li><a href="../air/air_info.jsp" >비행기 정보 조회</a></li>
-	<li><a href="../air/air_updateForm.jsp" >비행기 정보 수정</a></li>
-	<li><a href="../air/air_deleteForm.jsp">비행기 정보 탈퇴</a></li>
+	<li><a href="#" >비행기 정보 수정</a></li>
+	<li><a href="../air/air_deleteForm.jsp">비행기 정보 삭제</a></li>
 </ul>
 </div>
 </aside>

@@ -28,7 +28,7 @@ if(id!=null){
 <nav id="top_menu">
 <ul>
 	<li><a href="../main/mainForm.jsp">메인</a></li>
-	<li><a href="#">비행기 예약하기</a></li>
+	<li><a href="../reserve/res_insertForm.jsp">비행기 예약하기</a></li>
 	<li><a href="../air/air_main.jsp">비행기 일정 보기</a></li>
 	<li><a href="#">여행 게시판</a></li>
 	<li><a href="../main/memainForm.jsp">회원 정보</a></li>

@@ -40,7 +40,6 @@
 	System.out.println("check : " +check);
 	
 	if(check == 1){
-		System.out.println("정보 수정 완료");
 		session.removeAttribute("id");
 		%>
 		<script type="text/javascript">

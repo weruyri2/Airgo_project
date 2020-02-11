@@ -11,14 +11,7 @@
 <%
 	String id = (String)session.getAttribute("id");
 
-	if(id==null){
-		%>
-			<script type="text/javascript">
-				alert("로그인이 필요합니다.");
-				location.href="../member/loginForm.jsp";
-			</script>
-		<%
-	}
+
 %>
 
 <jsp:include page="../inc/top.jsp"/>

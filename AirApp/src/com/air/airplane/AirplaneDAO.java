@@ -73,7 +73,7 @@ public class AirplaneDAO {
 	}
 	
 	
-	public AirplaneBean getAirPlane() {
+	public AirplaneBean getAirPlane(String airname) {
 		System.out.println("getAirPlane 호출");
 		
 		AirplaneBean ab = null;
@@ -81,8 +81,9 @@ public class AirplaneDAO {
 		try {
 			con = getConn();
 			
-			sql = "select * from airplane";
+			sql = "select * from airplane where airname= ?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, airname);
 			
 			rs = pstmt.executeQuery();
 			
@@ -116,7 +117,8 @@ public class AirplaneDAO {
 		ArrayList<AirplaneBean> airplaneList = new ArrayList<AirplaneBean>();
 
 			try {
-
+				
+				con = getConn();
 				sql = "select * from airplane";
 				pstmt = con.prepareStatement(sql);
 					
@@ -137,7 +139,7 @@ public class AirplaneDAO {
 				}
 				System.out.println("비행기 정보 검색 완료 ! ");
 					
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				closeDB();				
@@ -146,5 +148,60 @@ public class AirplaneDAO {
 		return airplaneList;
 	}
 	
+	public int updateAirplane(AirplaneBean ab) {
+		int check = -1;
+		
+		try {
+			
+			con = getConn();
+			
+	
+					sql = "update airplane set depart = ?, arrive = ?, seat = ?, start = ?, end = ? where airname = ?";
+					pstmt = con.prepareStatement(sql);
+						
+					pstmt.setString(1, ab.getDepart());
+					pstmt.setString(2, ab.getArrive());
+					pstmt.setInt(3, ab.getSeat());
+					pstmt.setDate(4, ab.getStart());
+					pstmt.setDate(5, ab.getEnd());
+					pstmt.setString(6, ab.getAirname());
+						
+					pstmt.executeUpdate();
+					
+					System.out.println("정보 수정 완료");
+					check = 1;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return check;
+	}
+	
+	public int deleteAirplane(String airname) {
+		int check = -1;
+		
+		try {
+			con= getConn();
+			
+			sql = "delete from airplane where airname = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, airname);
+			pstmt.executeUpdate();
+			
+			System.out.println("삭제 완료");
+			check=1;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		
+		return check;
+	}
 	
 }

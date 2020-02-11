@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	 <%
+  <%
      String id =(String) session.getAttribute("id");
      if(id == null){
     	 response.sendRedirect("loginForm.jsp");
@@ -27,16 +27,6 @@
   
   %>
   
-  <!-- 
-    세션값 제어 -> ID
-    회원정보를 MemberDAO 객체 생성  -> 메서드 사용 출력  
-  
-     기존의 회원의 정보를 form 태그에서 확인가능 
-     비밀번호를 제외한 모든 정보를 표시 
-     - 아이디값을 수정 불가 (확인가능)
-     - 비밀번호 확인불가
-     - 성별도 체크(성별의 정보가 없을경우 임의의 성별 체크)
-   -->
 
 <jsp:include page="../inc/top.jsp"/>
    
