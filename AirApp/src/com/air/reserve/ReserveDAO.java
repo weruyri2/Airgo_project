@@ -82,28 +82,138 @@ public class ReserveDAO {
 	}
 	
 	
-	public void insertReserve(ReserveBean rb) {
+	public int insertReserve(ReserveBean rb) {
+		int check = -1;
+		
 		
 		try {
 			con = getConn();
 			
-			sql = "insert into reserve (resname,id,airname)"
-					+ " values (?, ?, ?)";
+			sql = "insert into reserve (resname,id,airname,depart,arrive,seat)"
+					+ " values (?, ?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, rb.getResname());
+			pstmt.setString(2, rb.getId());
+			pstmt.setString(3, rb.getAirname());
+			pstmt.setString(4, rb.getDepart());
+			pstmt.setString(5, rb.getArrive());
+			pstmt.setInt(6, rb.getSeat());
 			
-			pstmt.executeQuery();
+			pstmt.executeUpdate();
 			
 			System.out.println("예약 완료");
+			
+			check =1;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			check =0;
+		}finally{
+			closeDB();
+		}
+		
+		return check;
+		
+		
+		
+		
+	}
+	
+	
+	//getReserveList
+	public ArrayList getReserveList() {
+		
+		ArrayList<ReserveBean> reserveList = new ArrayList<ReserveBean>();
+		
+		try {
+			con = getConn();
+			sql = "select * from reserve";
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				ReserveBean rb = new ReserveBean();
+				
+				rb.setAirname(rs.getString("airname"));
+				rb.setArrive(rs.getString("arrive"));
+				rb.setDepart(rs.getString("depart"));
+				rb.setId(rs.getString("id"));
+				rb.setResname(rs.getString("resname"));
+				rb.setSeat(rs.getInt("seat"));
+				
+				reserveList.add(rb);
+				
+				
+			}
+			System.out.println("예약 정보 검색 완료");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
 			closeDB();
 		}
+
+		return reserveList;
 		
 		
+	}
+	
+	public int updateReserve(ReserveBean rb) {
+		int check = -1;
 		
+		try {
+			
+			con = getConn();
+			
+	
+					sql = "update reserve set airname = ?, depart = ?, arrive = ?, seat = ? where resname = ?";
+					
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, rb.getAirname());
+					pstmt.setString(2, rb.getDepart());
+					pstmt.setString(3, rb.getArrive());
+					pstmt.setInt(4, rb.getSeat());
+					pstmt.setString(5, rb.getResname());
+					
+					pstmt.executeUpdate();
+					
+					System.out.println("정보 수정 완료");
+					check = 1;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			check = 0;
+		} finally {
+			closeDB();
+		}
+		
+		return check;
+	}
+	
+	public int deleteReserve(String resname) {
+		int check = -1;
+		
+		try {
+			con= getConn();
+			
+			sql = "delete from reserve where resname = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, resname);
+			pstmt.executeUpdate();
+			
+			System.out.println("삭제 완료");
+			check=1;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			check=0;
+		}finally{
+			closeDB();
+		}
+		
+		return check;
 		
 		
 		

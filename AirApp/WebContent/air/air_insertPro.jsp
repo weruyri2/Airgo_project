@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%
 	
 		request.setCharacterEncoding("UTF-8");
@@ -52,7 +53,6 @@
  		location.href="air_main.jsp";
 	 </script> 
 
-  
 
 </body>
 </html>

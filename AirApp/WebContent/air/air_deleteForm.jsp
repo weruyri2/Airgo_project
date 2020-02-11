@@ -8,13 +8,18 @@
 </head>
 <body>
 
+<%
+	String airname = (String)request.getParameter("airname");
+
+%>
+
 <article id="center">
  <p>main content</p>
 	<h2> 비행기 삭제 </h2>
 	<fieldset>
 	  <legend> 정보 입력 </legend>
 	<form action="air_deletePro.jsp" method="post">
-	     비행기명 : <input type="text" name="airname" ><br>
+	     비행기명 : <input type="text" name="airname" value="<%=airname %>" ><br>
 	     암호값 : <input type="password" name="pass"><br>
 	     <input type="submit" value="삭제">
 	  </form>	

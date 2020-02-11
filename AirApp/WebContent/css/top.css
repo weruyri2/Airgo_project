@@ -4,7 +4,7 @@
 }
 
 header {border: 1px solid red;
-	height:150px;	
+	height:170px;	
 }
 
 div#login {border : 1px solid pink;
@@ -14,29 +14,22 @@ div#login {border : 1px solid pink;
 
 }
 
-nav {
-	height: 50px; 
-	/* overflow: hidden; */
-	margin-top: 30px;
-	padding-top:10px; 
-	border : 1px solid red;
-	clear:both;
-}
 nav ul {
-	background-color: pink;
 	border: 1px solid #ff0;
 	overflow:hidden;
 	margin-left: 14px;
-	float:left;
+	float:right;
 }
-nav li {border: 1px solid skyblue;
-	margin: 5px 10px;
+nav a {border: 1px solid skyblue;
 	float:left;
+	width:190px;
+	height:30px;
+	
 }
 nav a {border: 1px solid #fff;
 	
 }
-nav li:HOVER {
+nav a:HOVER {
 	background-color:#0cc;
 }
 

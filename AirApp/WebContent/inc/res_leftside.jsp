@@ -16,11 +16,11 @@
 
 <div class="w3-bar-block w3-light-grey">
 <ul class="w3-ul w3-hoverable">
-	<li><a href="../air/air_main.jsp" class="w3-bar-item w3-button">메인</a></li>
-	<li><a href="../air/air_insertForm.jsp" class="w3-bar-item w3-button">비행기 정보 생성</a></li>	
-	<li><a href="../air/air_info.jsp" class="w3-bar-item w3-button">비행기 정보 조회</a></li>
-	<li><a href="#" class="w3-bar-item w3-button" >비행기 정보 수정</a></li>
-	<li><a href="../air/air_deleteForm.jsp" class="w3-bar-item w3-button">비행기 정보 삭제</a></li>
+	<li><a href="#">메인</a></li>
+	<li><a href="../reserve/res_search.jsp">항공권 검색</a></li>	
+	<li><a href="../reserve/res_info.jsp" >예약 확인</a></li>
+	<li><a href="#" >예약 수정</a></li>
+	<li><a href="#">예약 삭제</a></li>
 </ul>
 </div>
 </aside>

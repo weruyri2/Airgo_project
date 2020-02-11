@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	// WebContext/inc/top.jsp
-	// 각 페이지에 있는 Header 태그의 동작 처리(공통 영역처리)
- 
-%>
+
 <link href="../css/top.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <header>
 <div id="login">
 
@@ -25,13 +23,19 @@ if(id!=null){
 <!-- 로고들어가는 곳 -->
 <div id="logo"><img src=""></div>
 <!-- 로고들어가는 곳 -->
+
+
+<div class="w3-container">
+<div class="w3-bar w3-red">
 <nav id="top_menu">
-<ul>
-	<li><a href="../main/mainForm.jsp">메인</a></li>
-	<li><a href="../reserve/res_insertForm.jsp">비행기 예약하기</a></li>
-	<li><a href="../air/air_main.jsp">비행기 일정 보기</a></li>
-	<li><a href="#">여행 게시판</a></li>
-	<li><a href="../main/memainForm.jsp">회원 정보</a></li>
-</ul>
+
+	<a href="../main/mainForm.jsp" class="w3-bar-item w3-button">메인</a>
+	<a href="../reserve/res_search.jsp" class="w3-bar-item w3-button">비행기 예약하기</a>
+	<a href="../air/air_main.jsp" class="w3-bar-item w3-button">비행기 일정 보기</a>
+	<a href="#" class="w3-bar-item w3-button">여행 게시판</a></li>
+	<a href="../main/memainForm.jsp" class="w3-bar-item w3-button">회원 정보</a>
+
 </nav>
+</div>
+</div>
 </header>

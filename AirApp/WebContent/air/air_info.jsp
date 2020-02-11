@@ -9,6 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/table.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -36,7 +38,7 @@
 <article id="center">
 <p>main content</p>
 
-	 <table border="1">
+	 <table border="1" id="customers">
 	 <tr>
 	  <td>비행기 명</td>
 	  <td>출발지</td>
@@ -66,7 +68,7 @@
 
       <td><%=ab.getEnd() %></td>
       <td><input type="button" value="수정" onclick="location.href='air_updateForm.jsp?airname=<%=ab.getAirname()%>'"></td>
-      <td><input type="button" value="삭제" onclick="location.href='air_deleteForm.jsp';"></td>
+      <td><input type="button" value="삭제" onclick="location.href='air_deleteForm.jsp?airname=<%=ab.getAirname()%>'"></td>
     </tr>
 	<%} %>
   </table>

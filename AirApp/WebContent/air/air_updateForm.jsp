@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/table.css" rel="stylesheet">
 </head>
 <body>
 
@@ -23,8 +24,12 @@
      
   %>
   
-    <fieldset>
-    <legend> 비행기 정보 수정 </legend>
+<jsp:include page="../inc/top.jsp"/>
+
+<jsp:include page="../inc/air_leftside.jsp" />
+
+<article id="center">
+<p>main content</p>
     
     <form action="air_updatePro.jsp" method="post">
 	<fieldset>
