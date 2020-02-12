@@ -33,12 +33,17 @@ bdao.updateReadCount(num);
 BoardBean bb = bdao.getBoard(num);
 //num에 해당하는 글정보를 가져오는 메서드
 
+		String savePath = "upload";
+		
+		ServletContext context = getServletContext();
+		String DownloadPath = context.getRealPath(savePath);
+	
+		System.out.println(DownloadPath);	
 %>
 
 <article id="center">
 <p>main content</p>
-
-<h1>글 본문 내용 보기</h1>
+<h1>글 본문 내용 보기 </h1>
 
 	<table border="1" id="customers">
 	<tr>
@@ -51,7 +56,7 @@ BoardBean bb = bdao.getBoard(num);
 	  <td>조회수</td><td><%=bb.getReadcount() %></td>
 	</tr>	
 	<tr>
-	<td>첨부파일</td><td colspan="5"><%=bb.getFile() %></td>
+	<td>첨부파일</td><td colspan="5"><a href="file_down.jsp?file_name=<%=bb.getFile()%>"><%=bb.getFile()%></a></td>
 	</tr>
 	
 	</table>
@@ -59,7 +64,7 @@ BoardBean bb = bdao.getBoard(num);
 	<table border="1" id="customers">
 	
 	<tr>
-	<td >내용</td><td colspan="5" align="char" height="auto" style="word-break:break-all;" valign="top" ><%=bb.getContent() %></td>
+	<td width="20">내용</td><td colspan="5" align="char" height="auto" style="word-break:break-all;" valign="top" ><%=bb.getContent() %></td>
 	</tr>
 	
 	</table>

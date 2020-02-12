@@ -5,48 +5,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/joinForm.css" rel="stylesheet">
 </head>
 <body>
 
+
+<div id="stylized" class="myform">
 	<form action="joinPro.jsp" method="post" name="fr" id="join">
-	<table border="1" >
-	<tr><td colspan="3" align="center"><b>회원 가입</b></td></tr>
-	<tr>
-	<td>아이디 : </td>
-	<td><input type="text" name="id"> 
-	<input type="button" name="btn" value="중복 확인" onclick="winopen();"></td>
-		</tr>
-	<tr>
-	<td>비밀번호 : </td>
-	<td><input type="password" name="pass"></td>
-		</tr>
-	<tr>
-	<td>이름 : </td>
-	<td><input type="text" name="name"></td>
-	</tr>
-	<tr>
-	<td>주민번호 : </td>
-	<td><input type="text" name="jumin"></td>
-		</tr>
-	<tr>
-	<tr>
-	<td>이메일 : </td>
-	<td><input type="text" name="email"></td>
-		</tr>
-	<td>전화번호 : </td>
-	<td><input type="text" name="phone"></td>
-	</tr>
-	<td>주소 : </td>
-	<td><input type="text" name="address"></td>
-		</tr>
-	<tr>
-	<td colspan="3" align="center">
-	<input type="submit" value="회원 가입"></td>
-	</tr>
-	</table>
+	<h1>회원가입</h1>
+	<p>확인</p>
+	<label>아이디</label>	<input type="text" name="id">
+	<input type="button" name="btn" value="중복 확인" onclick="winopen();"><br> 
+	<label>패스워드</label><input type="password" name="pass">
+	<label>이름</label> <input type="text" name="name">
+	<label>주민번호</label> <input type="text" name="jumin">
+	<label>이메일</label> <input type="text" name="email">
+	<label>전화번호</label> <input type="text" name="phone">
+	<label>주소</label> <input type="text" name="address">
+	
+
+	<input type="submit" value="회원가입" id="submit">
+	<input type="button" value="메인" onclick="location.href='../main/mainForm.jsp'">
+	<div class="spacer"></div>
 	</form>
+</div>
+
+
 
 </body>
+
 	<script type="text/javascript">
 		function winopen() {
 			if(document.fr.id.value == ""){

@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/infoForm.css" rel="stylesheet">
+<link href="../css/table.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -36,7 +36,7 @@
 
 <article id="center">
 <p>main content</p>
-	 <table border="1">
+	 <table border="1" id="customers">
     <tr>
       <td>아이디</td><td><%=mb.getId() %></td>
     </tr>
@@ -59,9 +59,6 @@
       <td>주소</td><td><%=mb.getAddress() %></td>
     </tr>
 
-    <tr>
-      <td colspan="2"><a href="../main/memainForm.jsp"> 메인 페이지로 </a></td>
-    </tr>
   </table>
 </article>
 

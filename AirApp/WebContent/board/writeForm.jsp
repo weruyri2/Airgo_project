@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/input.css" rel="stylesheet">
 </head>
 <body>
 
@@ -21,12 +22,11 @@
 	<fieldset>
 	 <legend> 글쓰기 </legend>
 	 <form action="writePro.jsp" method="post">
-	 글쓴이 : <input type="text" name="name"> <br>
-	 비밀번호 : <input type="password" name="pass"> <br>
-	 제목 : <input type="text" name="subject"> <br>
-	 내용 : <br> <textarea rows="10" cols="20" name="content"></textarea> <br>
+	 <div class="text">닉네임 </div> <input type="text" name="name" placeholder="name.."> <br> <div class="text">비밀번호 </div> <input type="password" name="pass" placeholder="password.."> <br>
+	 <div class="text">제목 </div> <input type="text" name="subject" placeholder="subject.."> <br>
+	 <div class="text">내용 </div> <br> <textarea rows="10" cols="20" name="content" placeholder="Write.."></textarea> <br>
 	 
-	 <input type = "submit" value = "글쓰기">
+	 <input type = "submit" value = "등록">
 	 
 	 </form>
 	</fieldset>

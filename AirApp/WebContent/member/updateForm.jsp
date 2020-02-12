@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 정보 수정</title>
-<link href="../css/memainForm.css" rel="stylesheet">
+<link href="../css/input.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -38,20 +38,19 @@
     <legend> 회원 정보 수정 </legend>
     
     <form action="updatePro.jsp" method="post">
-	      아이디* : <input type="text" name="id" value="<%=mb.getId() %>" readonly><br>
-	      비밀번호 : <input type="password" name="pass"><br>
-	      이름 : <input type="text" name="name" value="<%=mb.getName()%>"><br>
-	      주민번호* : <input type="text" name="jumin" value="<%=mb.getJumin()%>"><br>	        
-	      이메일* : <input type="text" name="email" value="<%=mb.getEmail()%>"><br>   
-	      전화번호* : <input type="text" name="phone" value="<%=mb.getPhone()%>"><br>   
-	      주소* : <input type="text" name="address" value="<%=mb.getAddress()%>"><br>   
+	      <div class="text">아이디* </div> <input type="text" name="id" value="<%=mb.getId() %>" readonly><br>
+	      <div class="text">비밀번호 </div> <input type="password" name="pass"><br>
+	      <div class="text">이름 </div> <input type="text" name="name" value="<%=mb.getName()%>"><br>
+	      <div class="text">주민번호* </div> <input type="text" name="jumin" value="<%=mb.getJumin()%>"><br>	        
+	      <div class="text">이메일* </div> <input type="text" name="email" value="<%=mb.getEmail()%>"><br>   
+	      <div class="text">전화번호* </div> <input type="text" name="phone" value="<%=mb.getPhone()%>"><br>   
+	      <div class="text">주소* </div> <input type="text" name="address" value="<%=mb.getAddress()%>"><br>   
 	   <input type="submit" value="회원 정보 수정">   
     </form>  
 
+</fieldset>
   
-  </fieldset>
-  
-  <h2> *표시된 항목은 데이터 중복X </h2>
+
 </article>
 
 

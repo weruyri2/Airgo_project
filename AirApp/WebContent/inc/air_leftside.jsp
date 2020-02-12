@@ -20,7 +20,7 @@
 	<li><a href="../air/air_insertForm.jsp" class="w3-bar-item w3-button">비행기 정보 생성</a></li>	
 	<li><a href="../air/air_info.jsp" class="w3-bar-item w3-button">비행기 정보 조회</a></li>
 	<li><a href="#" class="w3-bar-item w3-button" >비행기 정보 수정</a></li>
-	<li><a href="../air/air_deleteForm.jsp" class="w3-bar-item w3-button">비행기 정보 삭제</a></li>
+	
 </ul>
 </div>
 </aside>

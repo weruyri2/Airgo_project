@@ -17,8 +17,8 @@
 <div class="w3-bar-block w3-light-grey">
 <ul class="w3-ul w3-hoverable">
 	<li><a href="../board/boardList.jsp" class="w3-bar-item w3-button">메인</a></li>
-	<li><a href="writeForm.jsp" class="w3-bar-item w3-button">게시판 글쓰기</a></li>
-	<li><a href="fwriteForm.jsp" class="w3-bar-item w3-button">파일 게시판 글쓰기</a></li>	
+	<li><a href="../board/writeForm.jsp" class="w3-bar-item w3-button">게시판 글쓰기</a></li>
+	<li><a href="../board/fwriteForm.jsp" class="w3-bar-item w3-button">파일 게시판 글쓰기</a></li>	
 </ul>
 </div>
 </aside>

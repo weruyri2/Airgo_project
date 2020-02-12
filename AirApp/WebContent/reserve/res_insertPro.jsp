@@ -1,3 +1,4 @@
+<%@page import="com.air.reserve.ReserveBean"%>
 <%@page import="com.air.reserve.ReserveDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,27 +10,21 @@
 </head>
 <body>
 
-	<%
+<%
 	
-		request.setCharacterEncoding("UTF-8");
-	
-		String id = (String)session.getAttribute("id");
-	
-		String airname = request.getParameter("airname");
-		String depart = request.getParameter("depart");
-		String arrive = request.getParameter("arrive");
-		int seat = Integer.parseInt(request.getParameter("seat"));
-				
-		String resname = airname+id;
-		
-	%>
-	
-	
-	<jsp:useBean id="rb" class="com.air.reserve.ReserveBean" />
+	request.setCharacterEncoding("UTF-8");
 
+	String id = (String)session.getAttribute("id");
+
+	String airname = request.getParameter("airname");
+	String depart = request.getParameter("depart");
+	String arrive = request.getParameter("arrive");
+	int seat = Integer.parseInt(request.getParameter("seat"));
+				
+	String resname = airname+id;
 	
-	<%
-	
+	ReserveBean rb = new ReserveBean();
+		
 	rb.setAirname(airname);
 	rb.setArrive(arrive);
 	rb.setDepart(depart);

@@ -92,7 +92,7 @@ public class MemberDAO {
 					idcheck = 1;
 					break;
 				}else{
-					System.out.println("아이디 사용 가능!");
+					System.out.println("아이디 사용 불가");
 					idcheck = 0;
 				}
 			}

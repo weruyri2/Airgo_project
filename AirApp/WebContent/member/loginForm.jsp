@@ -5,27 +5,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/input.css" rel="stylesheet">
 </head>
 <body>
+
+<label>
 
 	<form action="loginPro.jsp" method="post" name="loginform">
 	<fieldset>
 	<legend>로그인</legend>
-	<table>
-	<tr>
-	<td>아이디 :</td> <td> <input type="text" name="id"> </td>
-	 </tr>
-	<tr> 
-	<td>패스워드 :</td> <td><input type="password" name="pass"> </td>
-	</tr>
-	<tr>
-	<td><input type="submit" value="로그인"> </td>
-	<td> <input type="button" value="회원가입" onclick="location.href='joinForm.jsp'">
-	<input type="button" value="메인으로" onclick="location.href='../main/mainForm.jsp'"> </td>
+	<div class="text">아이디</div>  <input type="text" name="id"> <br>
+	<div class="text">패스워드</div>  <input type="password" name="pass"> <br>
+	<div class="row">
+	<input type="submit" value="로그인" id="submit">
+	</div>
+	<div class="row">
+	<input type="button" value="회원가입" onclick="location.href='joinForm.jsp'">
+	<input type="button" value="메인" onclick="location.href='../main/mainForm.jsp'"> 
+	</div>
 	
-	</form>
-	
-	</table>
 	</fieldset>
+	</form>	
+		
+</label>
+
+
+
 </body>
 </html>
