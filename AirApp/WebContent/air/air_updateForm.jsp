@@ -48,10 +48,10 @@
 	 	<td>좌석 수 : </td> <td><input type="text" name="seat" value="<%=ab.getSeat() %>"> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>출발 일 : </td> <td><input type="date" name="start" > </td>
+	 	<td>출발 일 : </td> <td><input type="date" name="start" value="2020-02-01" > </td>
 	 	</tr>
 	 	<tr>
-	 	<td>도착 일 : </td> <td><input type="date" name="end" > </td>
+	 	<td>도착 일 : </td> <td><input type="date" name="end" value="2020-02-21" > </td>
 	 	</tr>
 	 	
 

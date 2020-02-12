@@ -62,9 +62,9 @@
 	 	</tr>
 	 	
 	 	<tr>
-	 	<td>출발일 : </td> <td><input type="date" name="start" min="2020-02-01"> </td>
+	 	<td>출발일 : </td> <td><input type="date" name="start" value="2020-02-01"> </td>
 
-	 	<td>도착일 : </td> <td><input type="date" name="end" min="2020-02-30"> </td>
+	 	<td>도착일 : </td> <td><input type="date" name="end" value="2020-02-01"> </td>
 	 	</tr>
 
 	 	<tr>

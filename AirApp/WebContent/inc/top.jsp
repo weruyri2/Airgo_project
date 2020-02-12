@@ -32,7 +32,7 @@ if(id!=null){
 	<a href="../main/mainForm.jsp" class="w3-bar-item w3-button">메인</a>
 	<a href="../reserve/res_search.jsp" class="w3-bar-item w3-button">비행기 예약하기</a>
 	<a href="../air/air_main.jsp" class="w3-bar-item w3-button">비행기 일정 보기</a>
-	<a href="#" class="w3-bar-item w3-button">여행 게시판</a></li>
+	<a href="../board/boardList.jsp" class="w3-bar-item w3-button">여행 게시판</a></li>
 	<a href="../main/memainForm.jsp" class="w3-bar-item w3-button">회원 정보</a>
 
 </nav>

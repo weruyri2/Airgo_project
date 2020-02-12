@@ -53,15 +53,15 @@
 	 	</select> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>출발 일 : </td> <td><input type="date" name="start" min="2020-02-01"> </td>
+	 	<td>출발 일 : </td> <td><input type="date" name="start" value="2020-02-01"> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>도착 일 : </td> <td><input type="date" name="end" min="2020-02-30"> </td>
+	 	<td>도착 일 : </td> <td><input type="date" name="end" value="2020-02-21"> </td>
 	 	</tr>
 	 	
 
 	 	<tr>
-	 	<td colspan="2"><input type="submit" value="생성하기"></td>
+	 	<td colspan="2" align="center"><input type="submit" value="생성하기"></td>
 	 	</tr>
 	 
 	 </table>
