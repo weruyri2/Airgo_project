@@ -6,28 +6,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/joinForm.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
 
-<div id="stylized" class="myform">
+<div id="lodiv" class="loclass">
+
 	<form action="joinPro.jsp" method="post" name="fr" id="join">
-	<h1>회원가입</h1>
-	<p>확인</p>
-	<label>아이디</label>	<input type="text" name="id">
-	<input type="button" name="btn" value="중복 확인" onclick="winopen();"><br> 
-	<label>패스워드</label><input type="password" name="pass">
-	<label>이름</label> <input type="text" name="name">
-	<label>주민번호</label> <input type="text" name="jumin">
-	<label>이메일</label> <input type="text" name="email">
-	<label>전화번호</label> <input type="text" name="phone">
-	<label>주소</label> <input type="text" name="address">
+	<fieldset class="fd">
+	<legend>Sign Up</legend>
+	<label>아이디</label>	<input type="text" name="id" onkeyup="winopen();"> <br>
+<!-- 	<input type="button" name="btn" value="중복 확인" onclick="winopen();"> <br>  -->
+	<label>패스워드</label> <input type="password" name="pass"> <br>
+	<label>이름</label> <input type="text" name="name"> <br>
+	<label>주민번호</label> <input type="text" name="jumin"> <br>
+	<label>이메일</label> <input type="text" name="email"> <br>
+	<label>전화번호</label> <input type="text" name="phone"> <br>
+	<label>주소</label> <input type="text" name="address"> <br>
 	
 
-	<input type="submit" value="회원가입" id="submit">
-	<input type="button" value="메인" onclick="location.href='../main/mainForm.jsp'">
-	<div class="spacer"></div>
+	<input type="submit" value="회원가입" id="submit"> <br><br>
+	
+	<div class="a">
+	<a href="loginForm.jsp">로그인</a> / <a href="../main/mainForm.jsp">메인이동</a>
+	</div>
+	
+	</fieldset>
 	</form>
+	
 </div>
 
 

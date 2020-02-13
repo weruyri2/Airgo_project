@@ -5,29 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/input.css" rel="stylesheet">
+<link href="../css/loginForm.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<label>
+<div id="lodiv" class="loclass">
 
 	<form action="loginPro.jsp" method="post" name="loginform">
-	<fieldset>
-	<legend>로그인</legend>
-	<div class="text">아이디</div>  <input type="text" name="id"> <br>
-	<div class="text">패스워드</div>  <input type="password" name="pass"> <br>
-	<div class="row">
-	<input type="submit" value="로그인" id="submit">
-	</div>
-	<div class="row">
-	<input type="button" value="회원가입" onclick="location.href='joinForm.jsp'">
-	<input type="button" value="메인" onclick="location.href='../main/mainForm.jsp'"> 
+	<fieldset class="fd">
+	<legend>LOGIN</legend>
+	<label>ID </label> <br> <input type="text" placeholder="Userid" name="id"> <br><br>
+	<label>PASSWORD </label> <br> <input type="password" placeholder="Password" name="pass"> <br><br>
+
+	<input type="submit" value="LOGIN" id="submit"> <br><br>
+	
+	<div class="a">
+	<a href="joinForm.jsp">회원가입</a> / <a href="../main/mainForm.jsp">메인이동</a>
 	</div>
 	
 	</fieldset>
 	</form>	
 		
-</label>
+</div>
 
 
 
