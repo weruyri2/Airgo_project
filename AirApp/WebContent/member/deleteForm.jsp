@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/infoForm.css" rel="stylesheet">
+<link href="../css/input.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,26 +22,23 @@
 
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">	
 
 <jsp:include page="../inc/leftside.jsp" />
 
-<article id="center">
- <p>main content</p>
-	<h2> 회원 탈퇴 </h2>
-	<fieldset>
-	  <legend> 정보 입력 </legend>
+
+<div id="updiv" class="upclass">
 	<form action="deletePro.jsp" method="post">
-	     아이디 : <input type="text" name="id" value="<%=id%>" readonly><br>
-	     비밀번호 : <input type="password" name="pass"><br>
-	     <input type="submit" value="회원 탈퇴">
-	  </form>	
+	<fieldset class="fd">
+		<label> 아이디 </label> <input type="text" name="id" value="<%=id%>" readonly><br>
+		<label> 비밀번호 </label> <input type="password" name="pass"><br>
+		     <input type="submit" value="회원 탈퇴">
 	</fieldset>
-</article>
+    </form>	
 
+	</div>
 
-<aside id="right">
- right - banner
-</aside>
+</div>
 	
 
 

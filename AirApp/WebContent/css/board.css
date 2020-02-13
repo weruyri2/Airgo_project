@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+
+.main{
+	width: 100%;
+	float: left;
+
+}
+
+.content {
+float: left;
+width: 100%;
+background-color: green;
+}
+
+ 
+/*  ----------------------------------------------------- */
+ 
+#bd {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin:6px;
+}
+
+.one{
+	background-color: #ddd;
+}
+
+/* #customers td, #customers th { */
+/*   border: 1px solid #ddd; */
+/* } */
+
+/* #customers tr:nth-child(even){background-color: #f2f2f2;} */
+
+/* #customers tr:hover {background-color: #ddd;} */
+
+.bd a:link { 
+	color: #000000; text-align: center;
+	text-decoration: none;
+
+	}
+.bd a:visited { color: #f20d0d; text-decoration: none;}
+.bd a:hover { color: #f20d0d; text-decoration: none;}

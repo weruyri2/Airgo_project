@@ -8,9 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/table.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
-	
+
 	<%
 		// 로그인 상태일때만 처리
 		// 로그인 상태가 아닐 경우 로그인 페이지로 이동
@@ -29,13 +30,17 @@
 		System.out.println(mb);
 
 	%>
+
 	
 <jsp:include page="../inc/top.jsp"/>
 
-<jsp:include page="../inc/leftside.jsp" />
 
-<article id="center">
-<p>main content</p>
+<div class="main">	
+
+<jsp:include page="../inc/leftside.jsp"/>
+
+<div class="content">
+<p>회원 정보</p>
 	 <table border="1" id="customers">
     <tr>
       <td>아이디</td><td><%=mb.getId() %></td>
@@ -60,13 +65,11 @@
     </tr>
 
   </table>
-</article>
-
-
-<aside id="right">
- right - banner
-</aside>
-	
   
+</div>
+
+</div>
+
+
 </body>
 </html>

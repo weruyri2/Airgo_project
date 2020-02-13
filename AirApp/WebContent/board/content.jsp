@@ -8,13 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/table.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
-
-<jsp:include page="../inc/top.jsp"/>
-
-<jsp:include page="../inc/bo_leftside.jsp" />
-
 
 <%
 //*페이지 이동시 전달되는 파라미터값 있을경우 항상 먼저 저장(처리)해야한다.
@@ -41,7 +37,13 @@ BoardBean bb = bdao.getBoard(num);
 		System.out.println(DownloadPath);	
 %>
 
-<article id="center">
+<jsp:include page="../inc/top.jsp"/>
+
+<div class="main">	
+
+<jsp:include page="../inc/bo_leftside.jsp" />
+
+
 <p>main content</p>
 <h1>글 본문 내용 보기 </h1>
 
@@ -89,7 +91,7 @@ BoardBean bb = bdao.getBoard(num);
 	
 </table>
 	
-</article>
+</div>
 
 
 	

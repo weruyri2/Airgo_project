@@ -1,13 +1,5 @@
 @CHARSET "UTF-8";
 
-
-.main:after{ clear: both; display: block; content: '' }
-
-.main{
-	width: 100%;
-	float: left;
-
-}
 .left {
 float: left;
 height: 700px;
@@ -44,8 +36,11 @@ ul li:hover{
 	border-left: 10px solid #09c;
 }
 
-.content {
-float: left;
-width: 100%;
-background-color: green;
-}
+.left a:link { 
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+	color: #fff; text-align: center;
+	text-decoration: none;
+
+	}
+.left a:visited { color: #fff; text-decoration: none;}
+.left a:hover { color: #fff; text-decoration: none;}

@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/infoForm.css" rel="stylesheet">
+<link href="../css/input.css" rel="stylesheet">
 </head>
 <body>
 
@@ -16,17 +18,11 @@
 
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">
 
 <jsp:include page="../inc/air_leftside.jsp" />
 
-<article id="air_center">
-<p>main content</p>
-</article>
-
-
-<aside id="air_right">
- right - banner
-</aside>
+</div>
 
 
 </body>

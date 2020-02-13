@@ -5,25 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="../css/air_leftside.css" rel="stylesheet">
+
 </head>
 <body>
 
-<aside id="left">
-<p>left content</p>
-
-<div class="w3-bar-block w3-light-grey">
-<ul class="w3-ul w3-hoverable">
-	<li><a href="../air/air_main.jsp" class="w3-bar-item w3-button">메인</a></li>
-	<li><a href="../air/air_insertForm.jsp" class="w3-bar-item w3-button">비행기 정보 생성</a></li>	
-	<li><a href="../air/air_info.jsp" class="w3-bar-item w3-button">비행기 정보 조회</a></li>
-	<li><a href="#" class="w3-bar-item w3-button" >비행기 정보 수정</a></li>
+<div class="left">
+<div class="list">
+<ul class="ul">
+	<li><a href="../air/air_main.jsp" >메인</a></li>
+	<li><a href="../air/air_insertForm.jsp">비행기 정보 생성</a></li>	
+	<li><a href="../air/air_info.jsp" >비행기 정보 조회</a></li>
+	<li><a href="#" >비행기 정보 수정</a></li>
 	
 </ul>
 </div>
-</aside>
+</div>
 
 
 

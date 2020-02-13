@@ -6,33 +6,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/input.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">	
+
 <jsp:include page="../inc/bo_leftside.jsp" />
 
-<article id="center">
-<p>main content</p>
-
-<h3> 게시판 파일 글쓰기 (정보 입력)</h3>
-	
-	<fieldset>
-	 <legend> 파일 글쓰기 </legend>
+	<fieldset class="fu">
 	 <form action="fwritePro.jsp" method="post" enctype="multipart/form-data">
-	 글쓴이 : <input type="text" name="name"> <br>
-	 비밀번호 : <input type="password" name="pass"> <br>
-	 제목 : <input type="text" name="subject"> <br>
-	 첨부파일 : <input type="file" name="file"><br>
-	 내용 : <br> <textarea rows="10" cols="20" name="content"></textarea> <br>
+	 <label>글쓴이 </label> <input type="text" name="name"> <br>
+	 <label>비밀번호 </label> <input type="password" name="pass"> <br>
+	 <label>제목 </label> <input type="text" name="subject"> <br>
+	 <label>첨부파일 </label> <input type="file" name="file"><br>
+	 <label>내용 </label> <br> <textarea rows="10" cols="20" name="content"></textarea> <br>
 	 
 	 <input type = "submit" value = "글쓰기">
 	 
 	 </form>
 	</fieldset>
 	
-</article>
+</div>
 	
 </body>
 </html>

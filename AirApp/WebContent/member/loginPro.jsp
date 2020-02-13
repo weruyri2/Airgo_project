@@ -21,7 +21,7 @@
 			%>
 			<script type="text/javascript">
 			alert("로그인 성공");
-			location.href="../main/mainForm.jsp";
+			location.href="../main/main.jsp";
 			</script>
 			<%
 		}else if(check==0){

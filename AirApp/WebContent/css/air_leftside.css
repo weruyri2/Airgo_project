@@ -1,17 +1,50 @@
 @CHARSET "UTF-8";
 
-aside, article {height: 600px;
- float: left;}
+.main:after{ clear: both; display: block; content: '' }
 
-aside#left {
-background-color: pink;
-width: 20%;}
+.main{
+	width: 100%;
+	float: left;
 
- 
-article {
+}
+.left {
+float: left;
+height: 700px;
+width:20%;
+background-color: #064461;
 
-width: 70%;}
- 
-aside#right {
-background-color:skyblue;
-width: 10%; }
+}
+
+.list{
+	font-family: 'Jua', sans-serif;
+	font-size: 19px;
+	line-height: 40px;
+	cursor: pointer;
+	background: #064461;
+	background: linear-gradient(#003040, #002535);
+}
+
+li{
+	list-style-type: none;
+}
+
+ul{
+	padding:0px;
+}
+
+ul li a{
+	margin:5px;
+	text-decoration: none;
+	display: block;
+}
+
+ul li:hover{
+	background: #003545;
+	border-left: 10px solid #09c;
+}
+
+.content {
+float: left;
+width: 80%;
+background-color: #fff;
+}

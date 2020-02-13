@@ -5,17 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="../css/air_leftside.css" rel="stylesheet">
 </head>
 <body>
 
-<aside id="left">
-<p>left content</p>
-
-<div class="w3-bar-block w3-light-grey">
-<ul class="w3-ul w3-hoverable">
+<div class="left">
+<div class="list">
+<ul class="ul">
 	<li><a href="#">메인</a></li>
 	<li><a href="../reserve/res_search.jsp">항공권 검색</a></li>	
 	<li><a href="../reserve/res_info.jsp" >예약 확인</a></li>
@@ -23,7 +18,7 @@
 	<li><a href="#">예약 삭제</a></li>
 </ul>
 </div>
-</aside>
+</div>
 
 
 

@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/input.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
@@ -13,18 +15,24 @@
 
 %>
 
-<article id="center">
- <p>main content</p>
-	<h2> 비행기 삭제 </h2>
-	<fieldset>
-	  <legend> 정보 입력 </legend>
-	<form action="air_deletePro.jsp" method="post">
-	     비행기명 : <input type="text" name="airname" value="<%=airname %>" ><br>
-	     암호값 : <input type="password" name="pass"><br>
-	     <input type="submit" value="삭제">
-	  </form>	
-	</fieldset>
-</article>
+<jsp:include page="../inc/top.jsp"/>
 
+<div class="main">
+
+<jsp:include page="../inc/air_leftside.jsp" />
+
+<div id="updiv" class="upclass">
+	<form action="air_deletePro.jsp" method="post">
+	<fieldset class="fd">
+	   <label>비행기 </label> <input type="text" name="airname" value="<%=airname %>" ><br>
+	   <label> 암호값 </label> <input type="password" name="pass"><br>
+	     <input type="submit" value="삭제"> 
+	</fieldset>
+	
+	</form>
+	</div>
+
+  
+</div>
 </body>
 </html>

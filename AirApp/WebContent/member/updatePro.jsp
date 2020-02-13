@@ -42,7 +42,7 @@
 		%>
 		<script type="text/javascript">
 		alert("정보 수정 완료");
-		location.href="../main/memainForm.jsp"
+		location.href="../member/memain.jsp"
 		</script>
 		<%
 	}else if(check == 0){
@@ -55,7 +55,7 @@
 		<%
 	}else {
 		//check == -1
-		System.out.println("아이디 없음 !");
+		System.out.println("수정 없음 !");
 		%>
 		<script type="text/javascript">
 		alert("아이디 없음 !");

@@ -5,11 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 정보</title>
-<link href="../css/memainForm.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
 <%
+	request.setCharacterEncoding("UTF-8");
+
 	String id = (String)session.getAttribute("id");
 
 	if(id==null){
@@ -25,12 +27,15 @@
 <jsp:include page="../inc/top.jsp"/>
 
 
+<div class="main">	
+
 <jsp:include page="../inc/leftside.jsp" />
+
 
 <article id="center">
 <p>main content</p>
 </article>
-
+</div>
 
 <aside id="right">
  right - banner

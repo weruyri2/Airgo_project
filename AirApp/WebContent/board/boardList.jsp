@@ -9,14 +9,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/table.css" rel="stylesheet">
+<link href="../css/board.css" rel="stylesheet">
 </head>
 <body>
-	
-<jsp:include page="../inc/top.jsp"/>
-
-<jsp:include page="../inc/bo_leftside.jsp" />
-	
 	<%
 		// 글목록 불러오기() (글이 있을떄만 가져오기)
 
@@ -57,12 +52,18 @@
 		}
 	%>
 	
-<article id="center">
+		
+<jsp:include page="../inc/top.jsp"/>
+
+<div class="main">	
+
+<jsp:include page="../inc/bo_leftside.jsp" />
+
 <p>main content</p>
 <h3> 게시판 글 목록[ 전체 개수 : <%=cnt %> 개 ]</h3>
 	
-	<table border="1" id="customers">
-	<tr>
+	<table id="bd" class="bd">
+	<tr class="one">
 	<td>글번호</td>
 	<td>글제목</td>
 	<td>글쓴이</td>
@@ -115,7 +116,8 @@
 	<% 	}
 		} %>
 	
-	</table>	
+  </table>
+  
 
 <div id="paging" align="center">	
 	<%
@@ -175,12 +177,8 @@
 	%>
 </div>	
 	
-</article>
+</div>	
 
-<aside id="right">
- right - banner
-</aside>
-	
 	
 </body>
 </html>

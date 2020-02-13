@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/table.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
@@ -26,15 +27,16 @@
   
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">
+
 <jsp:include page="../inc/air_leftside.jsp" />
 
-<article id="center">
 <p>main content</p>
     
     <form action="air_updatePro.jsp" method="post">
 	<fieldset>
 	 <legend>비행기 수정</legend>
-	 <table> 	
+	 <table id="customers"> 	
 	 	<tr>
 	 	<td>비행기명 : </td> <td><input type="text" name="airname" value="<%=ab.getAirname() %>" readonly> </td>
 	 	</tr>
@@ -56,7 +58,7 @@
 	 	
 
 	 	<tr>
-	 	<td><input type="submit" value="수정하기"></td>
+	 	<td colspan="2" align="center"><input type="submit" value="수정하기"></td>
 	 	</tr>
 	 
 	 </table>
@@ -66,7 +68,7 @@
 
 
   
-  </fieldset>
+</div>
   
 </body>
 </html>

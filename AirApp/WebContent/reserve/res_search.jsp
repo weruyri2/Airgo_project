@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/table.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 	<%
@@ -17,20 +18,12 @@
 	
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">	
 
 <jsp:include page="../inc/res_leftside.jsp" />
 
-	
-<article id="res_center">
-<p>main content</p>
-
-<aside id="res_top">
-<p>res_top content</p>
-<div id="res_insert">
-
 	<form action="res_insertForm.jsp" method="post" >
-	<fieldset>
-	 <legend>항공권 예약</legend>
+
 	 <table id="customers"> 	
 	 
 	 	<tr>
@@ -72,18 +65,12 @@
 	 	</tr>
 	 
 	 </table>
-	</fieldset>
+
 	
 	</form>
 </div>
-</aside>	
-
-</article>
 
 
-<aside id="res_right">
- right - banner
-</aside>
 	
 </body>
 </html>

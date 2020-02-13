@@ -6,14 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/table.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">	
+
 <jsp:include page="../inc/air_leftside.jsp" />
 
-<article id="center">
+
 <p>main content</p>
 
 	<form action="air_insertPro.jsp" method="post" name="air" >
@@ -68,14 +71,9 @@
 	</fieldset>
 	
 	</form>
+</div>
 	
-	
-</article>
 
-
-<aside id="right">
- right - banner
-</aside>
 
 </body>
 </html>

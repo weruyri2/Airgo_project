@@ -10,18 +10,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/table.css" rel="stylesheet">
+<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
 
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">	
 
 <jsp:include page="../inc/res_leftside.jsp" />
-
-	
-<article id="res_center">
-<p>main content</p>
 
 	<%
 		request.setCharacterEncoding("UTF-8");
@@ -40,12 +38,11 @@
 	<c:set var="arr" value="<%=arrive%>" />
 	<c:set var="sea" value="<%=seat%>" />
 	
-<aside id="res_top">
-<p>res_top content</p>
+<div id="res_top">
+
 <div id="res_insert">
-		<form action="res_insertForm.jsp" method="post" >
-	<fieldset>
-	 <legend>항공권 예약</legend>
+	<form action="res_insertForm.jsp" method="post" >
+
 	 <table id="customers"> 	
 	 
 	 	<tr>
@@ -86,9 +83,10 @@
 	 	<td colspan="6" align="center"><input type="submit" value="검색하기"></td>
 	 	</tr>
 	 </table>
-	</fieldset>	
+
 	</form>
-	
+	<br><br>
+
 	 <table border="1" id="customers">
 	 <tr>
 	  <td>항공명</td>
@@ -123,13 +121,11 @@
   </table>
   
 </div>
-</aside>
-</article>
 
+</div>
 
-<aside id="res_right">
- right - banner
-</aside>
+</div>	
+
 
 
 </body>
