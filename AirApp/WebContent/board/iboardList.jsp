@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/board.css" rel="stylesheet">
+<link href="../css/iboard.css" rel="stylesheet">
 </head>
 <body>
 	<%
@@ -24,7 +24,7 @@
 		//////////////////////////////
 		//페이징 처리
 		// 한페이지에서 보여줄 글의 개수를 설정
-		int pageSize = 10;
+		int pageSize = 6;
 		// 지금 위치하는 페이지의 정보를 저장
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null) {
@@ -50,6 +50,7 @@
 		
 		
 		}
+		
 	%>
 	
 		
@@ -60,19 +61,8 @@
 <jsp:include page="../inc/bo_leftside.jsp" />
 
 <div class="content">
-<h3> 게시판 글 목록[ 전체 개수 : <%=cnt %> 개 ]</h3>
-	
-	<table id="customers" class="bd">
-	<tr class="one">
-	<td class="no">No</td>
-	<td class="sub">Subject</td>
-	<td class="name">Name</td>
-	<td class="date">Date</td>
-	<td class="read">Read</td>
-	<td class="ip">Ip</td>
-	</tr>
-
-	
+<h3> 이미지 게시판</h3>
+		
 	<%
 // 		for(int i=0; i< boardList.size(); i++){
 // 			BoardBean bb = (BoardBean)boardList.get(i);
@@ -80,46 +70,44 @@
 			for(int i=0; i<boardList.size(); i++){
 				BoardBean bb = (BoardBean)boardList.get(i);
 		
+	String conPath = request.getContextPath()+"/upload";
 			
-
-	%>
+	System.out.println(conPath);		
+				
+	String imgPath = conPath+"\\"+bb.getFile();		
 	
-	<tr>
-	<td class="no"><%=bb.getNum()%></td>
 	
+	if(bb.getFile()!=null){
 		
-	<td class="sub">
-	
-	<%	//답글 들여쓰기 일반글 들여쓰기 X. 답글 level값에 따라서 들여쓰기 변경 
-	
-	int wid = 0;
-	int k = bb.getRe_lev();
-	
-	if(k!=0){ 
-		wid = 10*k;
-		%>
-		<img src="level.gif" height="15" width="<%=wid%>">
-		<img src="re.gif">
-		<%
-	}
 	%>
 	
-	<a href="content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
-			<%=bb.getSubject() %></a>
-
-	<td class="name"><%=bb.getName()%></td>	
-	<td class="date"><%=bb.getDate() %></td>
-	<td class="read"><%=bb.getReadcount() %></td>
-	<td class="ip"><%=bb.getIp() %></td>
+	<table id="customers" class="bd<%=(i+1)%2%>">
+	
+	<tr>		
+	<td class="sub" colspan="3">
+		<a href="content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
+	<img src="<%=imgPath%>" width=400 height=300></a>
+	</td>
+	</tr>
+	
+	<tr class="2r">
+	<td colspan="3"><%=bb.getSubject()%> <%=i+1%></td>
 	</tr>	
-	
+	<tr class="3r">
+	<td><%=bb.getName()%></td>
+	<td><%=bb.getDate() %></td>
+	<td><%=bb.getReadcount() %></td>
+	</tr>	
+	</table>
 	<% 	}
+			}
 		} %>
-	
-	<tr class="end">
+		
+	<table class="end">
+	<tr>
 	<td colspan="6">
-	<div class="paging">	
-		<%
+		<div class="paging">	
+				<%
 		///////////////////////////////////////////////
 		//페이징 처리
 		// 이전, 1,2,3,.........10, 다음
@@ -146,7 +134,7 @@
 			
 			if(startPage > 1) {
 				%>
-				<a href="boardList.jsp?pageNum=1">[처음으로]</a>
+				<a href="iboardList.jsp?pageNum=1">[처음으로]</a>
 				<%
 			}
 			
@@ -154,21 +142,21 @@
 			// 이전
 			if(startPage > pageBlock) {
 				%>
-				<a href="boardList.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</a>			
+				<a href="iboardList.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</a>			
 				<%
 			}
 			
 			// 1.....10 11...20 21...30
 			for(int i=startPage; i<=endPage; i++){
 				%>
-					<a href="boardList.jsp?pageNum=<%=i%>">|<%=i %>| </a>			
+					<a href="iboardList.jsp?pageNum=<%=i%>">|<%=i %>| </a>			
 				<%
 				
 			}
 			// 다음
 			if(endPage < pageCount) {
 				%>		
-				<a href="boardList.jsp?pageNum=<%=startPage+pageBlock%>">[다음] </a>
+				<a href="iboardList.jsp?pageNum=<%=startPage+pageBlock%>">[다음] </a>
 				<%
 			}
 		}
@@ -178,13 +166,14 @@
 		</div>	
 	</td>
 	</tr>
+	
 	<tr>
 		<td colspan="6">
 		<input type="button" value="글쓰기" 
 			onclick="location.href='fwriteForm.jsp'">
 		</td>
-	</tr>
-	</table>	
+	</tr>	
+	</table>
 	
 </div>	
 </div>

@@ -2,7 +2,7 @@
 
 
 .main{
-	width: 100%;
+	width: 1300px;
 	float: left;
 
 
@@ -37,7 +37,7 @@ input[type=text],[type=password] {
 }
 
 
-input[type=submit] {
+input[type=submit],[type=button] {
 	float:left;
 	width: auto;
 	height: 40px;

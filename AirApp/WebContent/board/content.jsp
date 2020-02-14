@@ -2,13 +2,14 @@
 <%@page import="com.air.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/table.css" rel="stylesheet">
-<link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,12 +30,13 @@ bdao.updateReadCount(num);
 BoardBean bb = bdao.getBoard(num);
 //num에 해당하는 글정보를 가져오는 메서드
 
-		String savePath = "upload";
 		
-		ServletContext context = getServletContext();
-		String DownloadPath = context.getRealPath(savePath);
-	
-		System.out.println(DownloadPath);	
+		String conPath = request.getContextPath()+"/upload";
+		
+		System.out.println(conPath);		
+		
+		String imgPath = conPath+"\\"+bb.getFile();
+
 %>
 
 <jsp:include page="../inc/top.jsp"/>
@@ -43,9 +45,8 @@ BoardBean bb = bdao.getBoard(num);
 
 <jsp:include page="../inc/bo_leftside.jsp" />
 
-
-<p>main content</p>
-<h1>글 본문 내용 보기 </h1>
+<div class="content">
+<p>게시글</p>
 
 	<table border="1" id="customers">
 	<tr>
@@ -65,8 +66,20 @@ BoardBean bb = bdao.getBoard(num);
 	
 	<table border="1" id="customers">
 	
+	
 	<tr>
-	<td width="20">내용</td><td colspan="5" align="char" height="auto" style="word-break:break-all;" valign="top" ><%=bb.getContent() %></td>
+	<td width="20" rowspan="2">내용</td>
+	<%if(bb.getFile()!=null){%>
+	<td colspan="5" align="char" height="auto">
+	<img src="<%=imgPath%>">
+	<%} %>
+	</td>
+	</tr>
+	<tr>	
+	<td class="text" colspan="5" align="char" height="auto" style="word-break:break-all;" valign="top" >
+	<%=bb.getContent() %></td>
+
+
 	</tr>
 	
 	</table>
@@ -90,6 +103,8 @@ BoardBean bb = bdao.getBoard(num);
 	</tr>
 	
 </table>
+	
+	</div>
 	
 </div>
 

@@ -594,6 +594,13 @@ public class BoardDAO {
 	}//reInsertBoard(bb);
 	
 	
+	public void imgInsertBoard(BoardBean bb){
+		
+		if(bb.getFile()!=null){
+			
+		}
+		
+	}
 	
 	
 

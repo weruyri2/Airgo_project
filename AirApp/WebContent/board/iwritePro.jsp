@@ -19,21 +19,14 @@
 
 		String fileName = "";
 		String OFileName = "";
+		String imgName = "";
 	
-		//파일 업로드
-		
-/* 		new MultipartRequest(
-				reuqest(내장객체정보),
-				파일을 업로드할 폴더(물리적위치),
-				파일의 최대 크기,
-				인코딩방식(한글처리),
-				동일한 파일명에 대한 파일이름변경처리객체
-				
-				); */
+		String up = "/upload";
 		
 		// 파일을 업로드할 폴더 (물리적 위치)
 		// => "upload"폴더를 사용해서 가상경로로 사용
 		String realPath = request.getRealPath("/upload");
+		String conPath = request.getContextPath()+"/upload";
 		//게시판글 저장
 		System.out.println("물리적 경로 : " + realPath);
 		
@@ -61,9 +54,11 @@
 		bb.setContent(multi.getParameter("content"));
 		//bb.setFile(multi.getParameter("file"));
 		// upload 폴더에 올라가있는 파일의 이름
-		bb.setFile(multi.getFilesystemName("file"));
+		bb.setFile(multi.getFilesystemName("imgfile"));
 				
 		fileName = multi.getParameter("fileName");
+		
+		imgName = multi.getParameter("imgName");
 		
 		// 다수의 파일 업로드시
 		Enumeration files = multi.getFileNames();
@@ -96,9 +91,10 @@
 		bdao.insertBoard(bb);
 		
 		// 페이지 이동
-		
-		response.sendRedirect("boardList.jsp");
+		String imgPath = conPath+"\\"+fileName;
 	%>
+		<img src="<%=imgPath%>">
 	
+	<%=imgPath %>
 </body>
 </html>

@@ -1,15 +1,22 @@
 @CHARSET "UTF-8";
 
 .main{
-	width: 100%;
+	width: 1300px;
 	float: left;
+}
+
+#air{
+	background-image: url("../images/airplane.jpg");
+	background-repeat : no-repeat; 
+	background-size: 820px 400px;
 }
 
 .content{
 	font-family: 'Jua', sans-serif;
 	float: left;
-	width: 800px;
-	margin:40px;
+	width: 850px;
+	margin:30px;
+/* 	background-color: #e0e0e0; */
 }
 
 .content p{
@@ -19,7 +26,7 @@
 #customers {
   font-family: 'Jua', sans-serif;
   border-collapse: collapse;
-  width:80%;
+  width:800px;
   margin:6px;
 }
 
@@ -35,7 +42,7 @@
 
 #customers tr:hover {background-color: #ddd;}
 
-input[type=submit] {
+input[type=submit],[type=button] {
 	float:left;
 	width: auto;
 	height: 40px;
@@ -44,5 +51,6 @@ input[type=submit] {
 	text-align: center;
 	border-radius: 4px;
 	font-family: 'Jua', sans-serif;
+	font-weight: bold;
 	
 }

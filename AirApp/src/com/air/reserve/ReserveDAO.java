@@ -192,19 +192,35 @@ public class ReserveDAO {
 		return check;
 	}
 	
-	public int deleteReserve(String resname) {
+	public int deleteReserve(String resname, String id, String pass) {
 		int check = -1;
 		
 		try {
 			con= getConn();
 			
-			sql = "delete from reserve where resname = ?";
+			sql = "select * from member where id = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, resname);
-			pstmt.executeUpdate();
+			pstmt.setString(1, id);
 			
-			System.out.println("삭제 완료");
-			check=1;
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				if(pass.equals(rs.getString("pass"))){
+					System.out.println("비밀번호 동일");
+					sql = "delete from reserve where resname = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, resname);
+					pstmt.executeUpdate();
+					
+					System.out.println("삭제 완료");
+					check=1;
+				}else{
+					System.out.println("비밀번호 오류");
+					check=0;
+				}
+			}else{
+				check=-1;
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();

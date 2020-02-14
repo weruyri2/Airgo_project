@@ -5,15 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/input.css" rel="stylesheet">
+<link href="../css/write.css" rel="stylesheet">
 </head>
 <body>
 
 <jsp:include page="../inc/top.jsp"/>
 
+<div class="main">	
+
 <jsp:include page="../inc/bo_leftside.jsp" />
 	
-<h3> 게시판 글삭제 </h3>
+
 	
 	<%
 		//파라미터값 저장 (num,pageNum)
@@ -21,24 +23,27 @@
 		String pageNum = request.getParameter("pageNum");	
 	%>
 	
-<article id="center">
-<p>main content</p>	
-	
-	<fieldset>
-		<legend> 글삭제 </legend>
+<div class="content">
+	<p>게시글 삭제</p>
 		<form action="deletePro.jsp?pageNum=<%=pageNum%>" method="post">
-		<input type="hidden" name="num" value="<%=num%>">
-		<div class="text">비밀번호</div>  <input type="password" name="pass"><br>
-		<input type="submit" value="삭제하기">
-		</form>
-	</fieldset>
-	
-</article>
+		 <table class="tab">
+    	 <tr>
+		<td> <input type="hidden" name="num" value="<%=num%>"> </td>
+		</tr>
+		<tr>
+		<td>비밀번호</td> <td> <input type="password" name="pass"></td>
+		</tr>
+		<tr>
+			<td colspan="2">  <input type="submit" value="삭제"> </td>
+		</tr>
 
+	</table>
+    </form>	
 
-<aside id="right">
- right - banner
-</aside>
+	</div>
+
+</div>
+
 
 </body>
 </html>

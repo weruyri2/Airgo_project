@@ -38,7 +38,7 @@
 
 <jsp:include page="../inc/res_leftside.jsp" />
 
-<div id="content">
+<div class="content" id="air">
 	<form action="res_insertForm.jsp" method="post" >
 
 	 <table id="customers"> 	

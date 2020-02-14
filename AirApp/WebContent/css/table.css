@@ -3,7 +3,7 @@
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width:80%;
+  width:500px;
   margin:6px;
 }
 
@@ -15,3 +15,55 @@
 
 #customers tr:hover {background-color: #ddd;}
 
+.main{
+	width: 1300px;
+	float: left;
+}
+
+.content{
+	font-family: 'Jua', sans-serif;
+	float: left;
+	width: 850px;
+	margin:30px;
+/* 	background-color: #e0e0e0; */
+}
+
+.content p{
+	padding: 10px;
+}
+
+#customers {
+  font-family: 'Jua', sans-serif;
+  border-collapse: collapse;
+  width:800px;
+  margin:6px;
+}
+
+.text{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.tc{
+	text-align: center;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+input[type=submit],[type=button] {
+	float:right;
+	width: auto;
+	height: 40px;
+	padding: 10px 8px;
+	margin: 0 4px;
+	text-align: center;
+	border-radius: 4px;
+	font-family: 'Jua', sans-serif;
+	font-weight: bold;
+	
+}

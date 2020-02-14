@@ -31,15 +31,7 @@
 
 <jsp:include page="../inc/leftside.jsp" />
 
-
-<article id="center">
-<p>main content</p>
-</article>
 </div>
-
-<aside id="right">
- right - banner
-</aside>
 
 </body>
 </html>

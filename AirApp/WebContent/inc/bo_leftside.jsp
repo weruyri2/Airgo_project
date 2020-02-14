@@ -14,6 +14,7 @@
 <ul class="ul">
 	<li><a href="../board/boardList.jsp" >메인</a></li>
 	<li><a href="../board/fwriteForm.jsp" >게시판 글쓰기</a></li>	
+	<li><a href="../board/iboardList.jsp" >이미지 게시판</a></li>	
 
 </ul>
 </div>
