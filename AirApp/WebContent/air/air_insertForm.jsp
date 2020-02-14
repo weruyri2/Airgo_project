@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/table.css" rel="stylesheet">
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
@@ -16,19 +15,18 @@
 
 <jsp:include page="../inc/air_leftside.jsp" />
 
+<div class="content">
 
-<p>main content</p>
+<p>비행기 노선 추가</p>
 
 	<form action="air_insertPro.jsp" method="post" name="air" >
-	<fieldset>
-	 <legend>비행기 생성</legend>
 	 <table id="customers"> 	
 	 
 	 	<tr>
-	 	<td>비행기명 : </td> <td><input type="text" name="airname"> </td>
+	 	<td>비행기명 </td> <td><input type="text" name="airname"> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>출발지 : </td> 
+	 	<td>출발지 </td> 
 	 	<td><select name = "depart">
 	 		<option value="부산">부산</option>
 	 		<option value="인천">인천</option>
@@ -36,7 +34,7 @@
 	 	</select> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>목적지 : </td>
+	 	<td>목적지 </td>
 	 	<td><select name = "arrive">
 	 		<option value="오사카">오사카</option>
 	 		<option value="후쿠오카">후쿠오카</option>
@@ -46,7 +44,7 @@
 	 	</select> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>좌석 수 : </td>
+	 	<td>좌석 수 </td>
 	 	<td><select name = "seat">
 	 		<option value=1>1</option>
 	 		<option value=2>2</option>
@@ -56,10 +54,10 @@
 	 	</select> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>출발 일 : </td> <td><input type="date" name="start" value="2020-02-01"> </td>
+	 	<td>출발 일 </td> <td><input type="date" name="start" value="2020-02-01"> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>도착 일 : </td> <td><input type="date" name="end" value="2020-02-21"> </td>
+	 	<td>도착 일 </td> <td><input type="date" name="end" value="2020-02-21"> </td>
 	 	</tr>
 	 	
 
@@ -67,10 +65,10 @@
 	 	<td colspan="2" align="center"><input type="submit" value="생성하기"></td>
 	 	</tr>
 	 
-	 </table>
-	</fieldset>
-	
+	 </table>	
 	</form>
+	
+	</div>
 </div>
 	
 

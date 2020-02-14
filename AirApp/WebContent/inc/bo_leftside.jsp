@@ -13,8 +13,7 @@
 <div class="list">
 <ul class="ul">
 	<li><a href="../board/boardList.jsp" >메인</a></li>
-	<li><a href="../board/writeForm.jsp" >게시판 글쓰기</a></li>
-	<li><a href="../board/fwriteForm.jsp" >파일 게시판 글쓰기</a></li>	
+	<li><a href="../board/fwriteForm.jsp" >게시판 글쓰기</a></li>	
 
 </ul>
 </div>

@@ -17,7 +17,7 @@
 
 <div class="content">
 
-	<form action="fwritePro.jsp" method="post" enctype="multipart/form-data">
+	<form action="iwritePro.jsp" method="post" enctype="multipart/form-data">
 	<table class="tab">
 	<tr>
 	 <td class="tc">작성자 </td> <td><input type="text" name="name"> </td>
@@ -30,6 +30,9 @@
 	 	 </tr>
 	 <tr>
 	 <td class="tc">파일첨부 </td> <td><input type="file" name="file"> </td>
+	 	 </tr>
+	 <tr>
+	 <td class="tc">사진첨부 </td> <td><input type="file" name="imgfile"> </td>
 	 	 </tr>
 	 <tr>
 	 <td colspan="2" class="tc">내용 </td> 
@@ -45,6 +48,6 @@
 </div>
 	
 </div>
-	
+
 </body>
 </html>

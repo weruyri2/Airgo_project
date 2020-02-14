@@ -5,13 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/left.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="left">
 <div class="list">
 <ul class="ul">
-	<li><a href="#">메인</a></li>
+	<li><a href="../reserve/res_search.jsp">메인</a></li>
 	<li><a href="../reserve/res_search.jsp">항공권 검색</a></li>	
 	<li><a href="../reserve/res_info.jsp" >예약 확인</a></li>
 	<li><a href="#" >예약 수정</a></li>

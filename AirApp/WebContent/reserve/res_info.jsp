@@ -8,7 +8,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/table.css" rel="stylesheet">
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
@@ -30,11 +29,12 @@
 
 <jsp:include page="../inc/res_leftside.jsp" />
 
-<p>main content</p>
+<div class="content">
+<p>예약 현황</p>
 
 	 <table border="1" id="customers">
 	 <tr>
-	  <td>예약이름</td>
+	  <td>예약명</td>
 	  <td>예약자</td>
 	  <td>항공기</td>
 	  <td>출발지</td>
@@ -64,6 +64,8 @@
     </tr>
 	<%} %>
   </table>
+  
+  </div>
 
 </div>
 	

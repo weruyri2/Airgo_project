@@ -1,10 +1,11 @@
-<%@page import="java.util.Enumeration"%>
 <%@page import="com.air.board.BoardDAO"%>
 <%@page import="com.air.board.BoardBean"%>
+<%@page import="java.util.Enumeration"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +15,8 @@
 <body>
 
 	<%
+
+
 		String fileName = "";
 		String OFileName = "";
 	
@@ -96,6 +99,6 @@
 		
 		response.sendRedirect("boardList.jsp");
 	%>
-
+	
 </body>
 </html>

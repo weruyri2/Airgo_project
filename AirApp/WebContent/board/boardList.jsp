@@ -59,17 +59,17 @@
 
 <jsp:include page="../inc/bo_leftside.jsp" />
 
-<p>main content</p>
+<div class="content">
 <h3> 게시판 글 목록[ 전체 개수 : <%=cnt %> 개 ]</h3>
 	
-	<table id="bd" class="bd">
+	<table id="customers" class="bd">
 	<tr class="one">
-	<td>글번호</td>
-	<td>글제목</td>
-	<td>글쓴이</td>
-	<td>작성 날짜</td>
-	<td>조회수</td>
-	<td>IP</td>
+	<td class="no">No</td>
+	<td class="sub">Subject</td>
+	<td class="name">Name</td>
+	<td class="date">Date</td>
+	<td class="read">Read</td>
+	<td class="ip">Ip</td>
 	</tr>
 
 	
@@ -85,10 +85,10 @@
 	%>
 	
 	<tr>
-	<td><%=bb.getNum()%></td>
+	<td class="no"><%=bb.getNum()%></td>
 	
 		
-	<td>
+	<td class="sub">
 	
 	<%	//답글 들여쓰기 일반글 들여쓰기 X. 답글 level값에 따라서 들여쓰기 변경 
 	
@@ -107,78 +107,81 @@
 	<a href="content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
 			<%=bb.getSubject() %></a>
 
-	<td><%=bb.getName()%></td>	
-	<td><%=bb.getDate() %></td>
-	<td><%=bb.getReadcount() %></td>
-	<td><%=bb.getIp() %></td>
+	<td class="name"><%=bb.getName()%></td>	
+	<td class="date"><%=bb.getDate() %></td>
+	<td class="read"><%=bb.getReadcount() %></td>
+	<td class="ip"><%=bb.getIp() %></td>
 	</tr>	
 	
 	<% 	}
 		} %>
 	
-  </table>
-  
-
-<div id="paging" align="center">	
-	<%
-	///////////////////////////////////////////////
-	//페이징 처리
-	// 이전, 1,2,3,.........10, 다음
-	
-	if(cnt != 0){
-		// 전체 페이지수 계산
-		// ex) 글 50개 / 페이지당 10씩 출력 => 5페이지
-		// ex) 글 56개 / 페이지당 10씩 출력 => 6페이지
-		int pageCount = cnt / pageSize + (cnt%pageSize == 0? 0:1);
+	<tr class="end">
+	<td colspan="6">
+	<div class="paging">	
+		<%
+		///////////////////////////////////////////////
+		//페이징 처리
+		// 이전, 1,2,3,.........10, 다음
 		
-		// 한 화면에 보여줄 페이지 번호 개수
-		int pageBlock = 5;
-		
-		// 시작페이지 번호 계산 1~10 => 1, 11~20 => 11, 21~30=>21
-		int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;
-				
-		// 끝 페이지 번호 계산
-		int endPage = startPage + pageBlock-1;
-		
-		if (endPage > pageCount) {
-			endPage = pageCount;
-		}
-		
-		
-		if(startPage > 1) {
-			%>
-			<a href="boardList.jsp?pageNum=1">[처음으로]</a>
-			<%
-		}
-		
-		
-		// 이전
-		if(startPage > pageBlock) {
-			%>
-			<a href="boardList.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</a>			
-			<%
-		}
-		
-		// 1.....10 11...20 21...30
-		for(int i=startPage; i<=endPage; i++){
-			%>
-				<a href="boardList.jsp?pageNum=<%=i%>">[<%=i %>] </a>			
-			<%
+		if(cnt != 0){
+			// 전체 페이지수 계산
+			// ex) 글 50개 / 페이지당 10씩 출력 => 5페이지
+			// ex) 글 56개 / 페이지당 10씩 출력 => 6페이지
+			int pageCount = cnt / pageSize + (cnt%pageSize == 0? 0:1);
 			
+			// 한 화면에 보여줄 페이지 번호 개수
+			int pageBlock = 5;
+			
+			// 시작페이지 번호 계산 1~10 => 1, 11~20 => 11, 21~30=>21
+			int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;
+					
+			// 끝 페이지 번호 계산
+			int endPage = startPage + pageBlock-1;
+			
+			if (endPage > pageCount) {
+				endPage = pageCount;
+			}
+			
+			
+			if(startPage > 1) {
+				%>
+				<a href="boardList.jsp?pageNum=1">[처음으로]</a>
+				<%
+			}
+			
+			
+			// 이전
+			if(startPage > pageBlock) {
+				%>
+				<a href="boardList.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</a>			
+				<%
+			}
+			
+			// 1.....10 11...20 21...30
+			for(int i=startPage; i<=endPage; i++){
+				%>
+					<a href="boardList.jsp?pageNum=<%=i%>">|<%=i %>| </a>			
+				<%
+				
+			}
+			// 다음
+			if(endPage < pageCount) {
+				%>		
+				<a href="boardList.jsp?pageNum=<%=startPage+pageBlock%>">[다음] </a>
+				<%
+			}
 		}
-		// 다음
-		if(endPage < pageCount) {
-			%>		
-			<a href="boardList.jsp?pageNum=<%=startPage+pageBlock%>">[다음] </a>
-			<%
-		}
-	}
-	//////////////////////////////////////////////	
-	%>
-</div>	
+		//////////////////////////////////////////////	
+		%>
+		
+		</div>	
+	</td>
+	</tr>
+	</table>	
 	
 </div>	
-
+</div>
 	
 </body>
 </html>

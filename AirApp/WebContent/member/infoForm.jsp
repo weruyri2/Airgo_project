@@ -7,18 +7,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/table.css" rel="stylesheet">
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
 
 	<%
+		
+		request.setCharacterEncoding("UTF-8");
 		// 로그인 상태일때만 처리
 		// 로그인 상태가 아닐 경우 로그인 페이지로 이동
 		String id = (String)session.getAttribute("id");
 		
 		if(id == null){
-			response.sendRedirect("loginForm.jsp");
+			response.sendRedirect("memain.jsp");
 		}
 		
 		//DB에 있는 로그인한 유저의 정보를 가져와서
@@ -41,27 +42,27 @@
 
 <div class="content">
 <p>회원 정보</p>
-	 <table border="1" id="customers">
+	 <table id="customers">
     <tr>
-      <td>아이디</td><td><%=mb.getId() %></td>
+      <td class="tc">아이디</td><td><%=mb.getId() %></td>
     </tr>
     <tr>
-      <td>비밀번호</td><td><%=mb.getPass() %></td>
+      <td class="tc">비밀번호</td><td><%=mb.getPass() %></td>
     </tr>
     <tr>
-      <td>이름</td><td><%=mb.getName() %></td>
+      <td class="tc">이름</td><td><%=mb.getName() %></td>
     </tr>
     <tr>
-      <td>주민번호</td><td><%=mb.getJumin() %></td>
+      <td class="tc">주민번호</td><td><%=mb.getJumin() %></td>
     </tr>
     <tr>
-      <td>이메일</td><td><%=mb.getEmail() %></td>
+      <td class="tc">이메일</td><td><%=mb.getEmail() %></td>
     </tr>
     <tr>
-      <td>전화번호</td><td><%=mb.getPhone() %></td>
+      <td class="tc">전화번호</td><td><%=mb.getPhone() %></td>
     </tr>
     <tr>
-      <td>주소</td><td><%=mb.getAddress() %></td>
+      <td class="tc">주소</td><td><%=mb.getAddress() %></td>
     </tr>
 
   </table>

@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/table.css" rel="stylesheet">
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
@@ -22,6 +21,7 @@
 
 <jsp:include page="../inc/res_leftside.jsp" />
 
+<div class="content">
 	<form action="res_insertForm.jsp" method="post" >
 
 	 <table id="customers"> 	
@@ -65,9 +65,9 @@
 	 	</tr>
 	 
 	 </table>
-
-	
 	</form>
+	
+	</div>
 </div>
 
 

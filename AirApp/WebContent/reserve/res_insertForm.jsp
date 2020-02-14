@@ -9,17 +9,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/table.css" rel="stylesheet">
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
-
-
-<jsp:include page="../inc/top.jsp"/>
-
-<div class="main">	
-
-<jsp:include page="../inc/res_leftside.jsp" />
 
 	<%
 		request.setCharacterEncoding("UTF-8");
@@ -38,9 +30,15 @@
 	<c:set var="arr" value="<%=arrive%>" />
 	<c:set var="sea" value="<%=seat%>" />
 	
-<div id="res_top">
 
-<div id="res_insert">
+
+<jsp:include page="../inc/top.jsp"/>
+
+<div class="main">	
+
+<jsp:include page="../inc/res_leftside.jsp" />
+
+<div id="content">
 	<form action="res_insertForm.jsp" method="post" >
 
 	 <table id="customers"> 	
@@ -121,10 +119,9 @@
   </table>
   
 </div>
-
 </div>
 
-</div>	
+
 
 
 

@@ -9,7 +9,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/table.css" rel="stylesheet">
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
@@ -37,8 +36,9 @@
 
 <jsp:include page="../inc/air_leftside.jsp" />
 
+<div class="content">
 
-<p>main content</p>
+<p>비행기 운항 일정</p>
 
 	 <table border="1" id="customers">
 	 <tr>
@@ -74,6 +74,8 @@
     </tr>
 	<%} %>
   </table>
+  
+  </div>
   
 </div>
 
