@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<div id="map">
 <div id="lodiv" class="loclass">
 
 	<form action="loginPro.jsp" method="post" name="loginform">
@@ -21,7 +22,7 @@
 	<input type="submit" value="LOGIN" id="submit"> <br><br>
 	
 	<div class="a">
-	<a href="joinForm.jsp">회원가입</a> / <a href="../main/mainForm.jsp">메인이동</a>
+	<a href="joinForm.jsp">회원가입</a> / <a href="../main/main.jsp">메인이동</a>
 	</div>
 	
 	</fieldset>
@@ -29,7 +30,7 @@
 		
 </div>
 
-
+</div>
 
 </body>
 </html>

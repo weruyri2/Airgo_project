@@ -15,7 +15,7 @@
 <nav class="menu">
 
 	<div class="item"><a href="../main/main.jsp" >메인</a></div>
-	<div class="item"><a href="../reserve/res_search.jsp" >항공권 구매</a></div>
+	<div class="item"><a href="../reserve/res_search.jsp" >항공권 예약</a></div>
 	<div class="item"><a href="../air/air_main.jsp" >비행기 일정</a></div>
 	<div class="item"><a href="../board/boardList.jsp" >여행 게시판</a></div>
 	<div class="item"><a href="../member/memain.jsp" >회원 정보</a></div>

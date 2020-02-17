@@ -1,7 +1,11 @@
 @CHARSET "UTF-8";
 
-@CHARSET "UTF-8";
-
+#map{
+	width: 1300px;
+	float: left;
+	
+	margin-left: 340px;
+}
 
 .main{
 	width: 1300px;
@@ -16,6 +20,7 @@
 /* 	background-color: #e0e0e0; */
 
 }
+
 
 .bd0{
 	float: right;
@@ -105,6 +110,13 @@ td{
  
 /*  ----------------------------------------------------- */
  
+
+#customers p{
+	font-family: 'Jua', sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 0px;
+}
 
 #customers td, #customers th {
   border: 1px solid #ddd;

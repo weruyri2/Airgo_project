@@ -8,7 +8,7 @@
 <link href="../css/write.css" rel="stylesheet">
 </head>
 <body>
-
+<div id="map">
 <jsp:include page="../inc/top.jsp"/>
 
 <div class="main">	
@@ -44,6 +44,8 @@
 	</form>
 </div>
 	
+</div>
+
 </div>
 	
 </body>

@@ -3,10 +3,13 @@ package com.air.member;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.air.reserve.ReserveBean;
 
 
 
@@ -294,8 +297,46 @@ public class MemberDAO {
 	}
 	//deleteMember
 	
-	
-	
+	//getMemberReserve
+	public ArrayList getMemberReserve(String id) {
+		
+		ArrayList<ReserveBean> reserveList = new ArrayList<ReserveBean>();
+		
+		try {
+			con = getConn();
+			sql = "select * from reserve where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				ReserveBean rb = new ReserveBean();
+				
+				rb.setAirname(rs.getString("airname"));
+				rb.setArrive(rs.getString("arrive"));
+				rb.setDepart(rs.getString("depart"));
+				rb.setId(rs.getString("id"));
+				rb.setResname(rs.getString("resname"));
+				rb.setSeat(rs.getInt("seat"));
+				
+				reserveList.add(rb);
+				
+				
+			}
+			System.out.println("멤버 예약 검색 완료");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+
+		return reserveList;
+		
+		
+	}
 	
 	
 	

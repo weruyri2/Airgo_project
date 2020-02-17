@@ -12,7 +12,7 @@
 <link href="../css/table.css" rel="stylesheet">
 </head>
 <body>
-
+<div id="map">
 <%
 //*페이지 이동시 전달되는 파라미터값 있을경우 항상 먼저 저장(처리)해야한다.
 //~/content.jsp?num=5&pageNum=2
@@ -108,7 +108,7 @@ BoardBean bb = bdao.getBoard(num);
 	
 </div>
 
-
+</div>
 	
 </body>
 </html>

@@ -12,6 +12,8 @@
 <link href="../css/board.css" rel="stylesheet">
 </head>
 <body>
+
+<div id="map">
 	<%
 		// 글목록 불러오기() (글이 있을떄만 가져오기)
 
@@ -187,6 +189,7 @@
 	</table>	
 	
 </div>	
+</div>
 </div>
 	
 </body>

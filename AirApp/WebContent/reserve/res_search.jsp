@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,10 +10,20 @@
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
+
+<div id="map">
 	<%
 		request.setCharacterEncoding("UTF-8");
 	
 		String id = (String)session.getAttribute("id");
+		
+		
+		Date now = new Date(new java.util.Date().getTime());
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String today = sdf.format(now);
+		
+		Date date_today = Date.valueOf(today);
 	
 	%>
 	
@@ -55,9 +67,9 @@
 	 	</tr>
 	 	
 	 	<tr>
-	 	<td>출발일 : </td> <td><input type="date" name="start" value="2020-02-01"> </td>
+	 	<td>출발일 : </td> <td><input type="date" name="start" value="<%=date_today%>"> </td>
 
-	 	<td>도착일 : </td> <td><input type="date" name="end" value="2020-02-01"> </td>
+	 	<td>도착일 : </td> <td><input type="date" name="end" value="<%=date_today%>"> </td>
 	 	</tr>
 
 	 	<tr>
@@ -70,7 +82,6 @@
 	</div>
 </div>
 
-
-	
+</div>
 </body>
 </html>

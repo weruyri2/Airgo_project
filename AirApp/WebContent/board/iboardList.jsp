@@ -1,5 +1,5 @@
-<%@page import="com.air.board.BoardBean"%>
-<%@page import="com.air.board.BoardDAO"%>
+<%@page import="com.air.board.iBoardBean"%>
+<%@page import="com.air.board.iBoardDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,14 +12,16 @@
 <link href="../css/iboard.css" rel="stylesheet">
 </head>
 <body>
+
+<div id="map">
 	<%
 		// 글목록 불러오기() (글이 있을떄만 가져오기)
 
 		// 디비처리 객체
-		BoardDAO bdao = new BoardDAO();
+		iBoardDAO ibdao = new iBoardDAO();
 		
 		// 디비에 저장되어있는 글의 개수를 계산하는 메서드
-		int cnt = bdao.getBoardCount();
+		int cnt = ibdao.getBoardCount();
 		
 		//////////////////////////////
 		//페이징 처리
@@ -41,10 +43,10 @@
 		//////////////////////////////
 		
 		//ArrayList<BoardBean> boardList = bdao.getBoardList();
-		List boardList = null;
+		List iboardList = null;
 		if( cnt !=0){
 		//List boardList = bdao.getBoardListAll();
-		boardList = bdao.getBoardList(startRow,pageSize);
+		iboardList = ibdao.getBoardList(startRow,pageSize);
 		//최신글이 가장 위로 : re_ref 내림차순(desc), re_seq 오르차순(asc)
 		//원하는 개수만큼씩 가져오기 : limit(시작행-1, 개수)
 		
@@ -66,9 +68,9 @@
 	<%
 // 		for(int i=0; i< boardList.size(); i++){
 // 			BoardBean bb = (BoardBean)boardList.get(i);
-	if(boardList != null) {
-			for(int i=0; i<boardList.size(); i++){
-				BoardBean bb = (BoardBean)boardList.get(i);
+	if(iboardList != null) {
+			for(int i=0; i<iboardList.size(); i++){
+				iBoardBean bb = (iBoardBean)iboardList.get(i);
 		
 	String conPath = request.getContextPath()+"/upload";
 			
@@ -91,8 +93,9 @@
 	</tr>
 	
 	<tr class="2r">
-	<td colspan="3"><%=bb.getSubject()%> <%=i+1%></td>
-	</tr>	
+	<td colspan="3"><p><%=bb.getSubject()%> <%=i+1%><p></td>
+	</tr>
+		
 	<tr class="3r">
 	<td><%=bb.getName()%></td>
 	<td><%=bb.getDate() %></td>
@@ -170,7 +173,7 @@
 	<tr>
 		<td colspan="6">
 		<input type="button" value="글쓰기" 
-			onclick="location.href='fwriteForm.jsp'">
+			onclick="location.href='iwriteForm.jsp'">
 		</td>
 	</tr>	
 	</table>
@@ -178,5 +181,6 @@
 </div>	
 </div>
 	
+</div>	
 </body>
 </html>

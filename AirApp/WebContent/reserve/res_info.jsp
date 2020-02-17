@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<div id="map">
 <%
 	
 	String id = (String)session.getAttribute("id");
@@ -69,6 +70,6 @@
 
 </div>
 	
-
+</div>
 </body>
 </html>

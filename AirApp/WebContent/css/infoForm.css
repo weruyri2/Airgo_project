@@ -5,6 +5,14 @@
 	float: left;
 }
 
+#map{
+	width: 1300px;
+	float: left;
+	
+	margin-left: 340px;
+}
+
+
 #air{
 	background-image: url("../images/airplane.jpg");
 	background-repeat : no-repeat; 

@@ -10,7 +10,7 @@
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
-
+<div id="map">
   <%
      String id =(String) session.getAttribute("id");
 
@@ -66,6 +66,6 @@
 </div>
   
 </div>
-  
+ </div>
 </body>
 </html>

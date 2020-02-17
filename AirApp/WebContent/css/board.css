@@ -1,5 +1,11 @@
 @CHARSET "UTF-8";
 
+#map{
+	width: 1300px;
+	float: left;
+	
+	margin-left: 340px;
+}
 
 .main{
 	width: 1300px;

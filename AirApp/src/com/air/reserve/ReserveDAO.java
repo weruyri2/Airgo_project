@@ -1,6 +1,7 @@
 package com.air.reserve;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.air.airplane.AirplaneBean;
+import com.air.airplane.AirplaneDAO;
 
 public class ReserveDAO {
 
@@ -44,17 +46,19 @@ public class ReserveDAO {
 	///////////////////////////////////////////////
 	
 	
-	public ArrayList serchAirplane(String depart, String arrive) {
+	public ArrayList serchAirplane(String depart, String arrive,Date start,Date end) {
 		
 		ArrayList<AirplaneBean> airplaneList = new ArrayList<AirplaneBean>();
 
 		try {
 			con = getConn();
 			
-			sql = "select * from airplane where depart = ? and arrive = ?"; 
+			sql = "select * from airplane where depart = ? and arrive = ? and start >= ? and end <= ?"; 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, depart);
 			pstmt.setString(2, arrive);
+			pstmt.setDate(3, start);
+			pstmt.setDate(4, end);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
@@ -74,6 +78,7 @@ public class ReserveDAO {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("맞는 비행기 없음");
 		}finally{
 			closeDB();
 		}
@@ -85,26 +90,45 @@ public class ReserveDAO {
 	public int insertReserve(ReserveBean rb) {
 		int check = -1;
 		
-		
+		AirplaneDAO adao = new AirplaneDAO();
+		AirplaneBean ab = adao.getAirPlane(rb.getAirname());
+			
 		try {
+			
 			con = getConn();
 			
-			sql = "insert into reserve (resname,id,airname,depart,arrive,seat)"
-					+ " values (?, ?, ?, ?, ?, ?)";
+			if(ab.getSeat()-rb.getSeat()<0) {
+				System.out.println("좌석 수 오버");
+				check = -2;
+			}else{
 			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, rb.getResname());
-			pstmt.setString(2, rb.getId());
-			pstmt.setString(3, rb.getAirname());
-			pstmt.setString(4, rb.getDepart());
-			pstmt.setString(5, rb.getArrive());
-			pstmt.setInt(6, rb.getSeat());
 			
-			pstmt.executeUpdate();
-			
-			System.out.println("예약 완료");
-			
-			check =1;
+				sql = "insert into reserve (resname,id,airname,depart,arrive,seat)"
+						+ " values (?, ?, ?, ?, ?, ?)";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, rb.getResname());
+				pstmt.setString(2, rb.getId());
+				pstmt.setString(3, rb.getAirname());
+				pstmt.setString(4, rb.getDepart());
+				pstmt.setString(5, rb.getArrive());
+				pstmt.setInt(6, rb.getSeat());
+				
+				pstmt.executeUpdate();
+				
+				System.out.println("예약 완료");
+				
+				sql ="update airplane set seat = seat-? where airname = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, rb.getSeat());
+				pstmt.setString(2, rb.getAirname());
+				
+				pstmt.executeUpdate();
+				
+				System.out.println("좌석수 적용 완료");
+				
+				check =1;
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -192,7 +216,7 @@ public class ReserveDAO {
 		return check;
 	}
 	
-	public int deleteReserve(String resname, String id, String pass) {
+	public int deleteReserve(ReserveBean rb, String pass) {
 		int check = -1;
 		
 		try {
@@ -200,16 +224,26 @@ public class ReserveDAO {
 			
 			sql = "select * from member where id = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, rb.getId());
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
 				if(pass.equals(rs.getString("pass"))){
 					System.out.println("비밀번호 동일");
+					sql = "update airplane set seat = seat+? where airname = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, rb.getSeat());
+					pstmt.setString(2, rb.getAirname());
+					pstmt.executeUpdate();
+					
+					System.out.println("좌석수 복구 완료");
+					
+					
+					
 					sql = "delete from reserve where resname = ?";
 					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, resname);
+					pstmt.setString(1, rb.getResname());
 					pstmt.executeUpdate();
 					
 					System.out.println("삭제 완료");
@@ -230,9 +264,40 @@ public class ReserveDAO {
 		}
 		
 		return check;
+			
+	}
+	
+	public ReserveBean getReserve(String resname){
 		
+		ReserveBean rb = new ReserveBean();
 		
+		try {
+			con = getConn();
+			
+			sql = "select * from Reserve where resname = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, resname);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				rb.setAirname(rs.getString("airname"));
+				rb.setDepart(rs.getString("depart"));
+				rb.setArrive(rs.getString("arrive"));
+				rb.setId(rs.getString("id"));
+				rb.setResname(rs.getString("resname"));
+				rb.setSeat(rs.getInt("seat"));
+				
+				System.out.println("예약 rb 저장 완료");
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
 		
+		return rb;
 	}
 	
 }

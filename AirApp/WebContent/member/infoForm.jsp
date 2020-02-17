@@ -11,16 +11,21 @@
 </head>
 <body>
 
+<div id="map">
 	<%
 		
 		request.setCharacterEncoding("UTF-8");
-		// 로그인 상태일때만 처리
-		// 로그인 상태가 아닐 경우 로그인 페이지로 이동
+	
 		String id = (String)session.getAttribute("id");
-		
-		if(id == null){
-			response.sendRedirect("memain.jsp");
-		}
+	
+		if(id==null){
+			%>
+				<script type="text/javascript">
+					alert("로그인이 필요합니다.");
+					location.href="../member/loginForm.jsp";
+				</script>
+			<%
+		}	
 		
 		//DB에 있는 로그인한 유저의 정보를 가져와서
 		// 해당페이지에 출력
@@ -71,6 +76,6 @@
 
 </div>
 
-
+</div>
 </body>
 </html>

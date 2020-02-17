@@ -11,15 +11,17 @@
 <link href="../css/leftside.css" rel="stylesheet">
 <link href="../css/main.css" rel="stylesheet">
 </head>
+
 <body>
-<div id="wrap">
+
+<div id="map">
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"/>
 <!-- 헤더파일들어가는 곳 -->
 <!-- 메인이미지 들어가는곳 -->
 <article>
 <div class="img">
-<img src="../images/main_airplane.gif" height=450 width=1100 >
+<img src="../images/main_img2.jpg" height=450 width=1100 >
 </div>
 
 <div>

@@ -9,14 +9,32 @@
 </head>
 <body>
 
+<%
+	request.setCharacterEncoding("UTF-8");
+	
+	String id = (String)session.getAttribute("id");
+	
+	System.out.println("세션 값"+id);
+	
+	if(id==null){
+		id = "";
+	}
+	
+	
+%>
 <div class="left">
 <div class="list">
 <ul class="ul">
 	<li><a href="../reserve/res_search.jsp">메인</a></li>
 	<li><a href="../reserve/res_search.jsp">항공권 검색</a></li>	
+
+
+<%if(id.equals("admin")) { %>
 	<li><a href="../reserve/res_info.jsp" >예약 확인</a></li>
 	<li><a href="#" >예약 수정</a></li>
-	<li><a href="#">예약 삭제</a></li>
+	<li><a href="#">예약 삭제</a></li>	
+<%} %>
+	
 </ul>
 </div>
 </div>

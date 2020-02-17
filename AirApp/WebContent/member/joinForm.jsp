@@ -29,7 +29,7 @@
 	<input type="submit" value="회원가입" id="submit"> <br><br>
 	
 	<div class="a">
-	<a href="loginForm.jsp">로그인</a> / <a href="../main/mainForm.jsp">메인이동</a>
+	<a href="loginForm.jsp">로그인</a> / <a href="../main/main.jsp">메인이동</a>
 	</div>
 	
 	</fieldset>

@@ -13,18 +13,17 @@
 </head>
 <body>
 
+<div id="map">
 	<%
-		// 로그인 상태일때만 처리
-		// 로그인 상태가 아닐 경우 로그인 페이지로 이동
+		request.setCharacterEncoding("UTF-8");
+	
 		String id = (String)session.getAttribute("id");
 		
 		
 		AirplaneDAO adao = new AirplaneDAO();
 		
 		ArrayList<AirplaneBean> airplaneList = adao.getAirplaneList();	
-		//DB에 있는 로그인한 유저의 정보를 가져와서
-		// 해당페이지에 출력
-		
+
 		System.out.println("비행기 수 :" +airplaneList.size());
 		
 
@@ -79,6 +78,7 @@
   
 </div>
 
+</div>
 
 </body>
 </html>

@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/input.css" rel="stylesheet">
-<link href="../css/infoForm.css" rel="stylesheet">
+<link href="../css/write.css" rel="stylesheet">
 </head>
 <body>
 
+<div id="map">
 <%
 	String airname = (String)request.getParameter("airname");
 
@@ -21,17 +21,23 @@
 
 <jsp:include page="../inc/air_leftside.jsp" />
 
-<div id="updiv" class="upclass">
+<div class="content">
+	<p>운항 정보 삭제</p>
 	<form action="air_deletePro.jsp" method="post">
-	<fieldset class="fd">
-	   <label>비행기 </label> <input type="text" name="airname" value="<%=airname %>" ><br>
-	   <label> 암호값 </label> <input type="password" name="pass"><br>
-	     <input type="submit" value="삭제"> 
-	</fieldset>
-	
+	 <table class="tab">
+	 <tr>
+	   <td>비행기 명</td> <td><input type="text" name="airname" value="<%=airname %>" readonly></td>
+	   </tr>
+	   <tr>
+	   <td>삭제 확인</td> <td><input type="password" name="pass"></td>
+	   </tr>
+	   <tr>
+	   <td> <input type="submit" value="삭제"> </td>
+	</tr>
+	</table>
 	</form>
 	</div>
-
+</div>
   
 </div>
 </body>

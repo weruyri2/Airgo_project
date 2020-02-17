@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,7 +10,19 @@
 <link href="../css/infoForm.css" rel="stylesheet">
 </head>
 <body>
+<div id="map">
+<%
+	request.setCharacterEncoding("UTF-8");
+	
+	String id = (String)session.getAttribute("id");
 
+	Date now = new Date(new java.util.Date().getTime());
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String today = sdf.format(now);
+	
+	Date date_today = Date.valueOf(today);
+%>
 <jsp:include page="../inc/top.jsp"/>
 
 <div class="main">	
@@ -23,7 +37,7 @@
 	 <table id="customers"> 	
 	 
 	 	<tr>
-	 	<td>비행기명 </td> <td><input type="text" name="airname"> </td>
+	 	<td>비행기명 </td> <td><input type="text" name="airname" required> </td>
 	 	</tr>
 	 	<tr>
 	 	<td>출발지 </td> 
@@ -46,18 +60,16 @@
 	 	<tr>
 	 	<td>좌석 수 </td>
 	 	<td><select name = "seat">
-	 		<option value=1>1</option>
-	 		<option value=2>2</option>
-	 		<option value=3>3</option>
-	 		<option value=4>4</option>
-	 		<option value=5>5</option>
+	 		<option value=30>30</option>
+	 		<option value=40>40</option>
+	 		<option value=50>50</option>
 	 	</select> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>출발 일 </td> <td><input type="date" name="start" value="2020-02-01"> </td>
+	 	<td>출발 일 </td> <td><input type="date" name="start" value="<%=today%>"> </td>
 	 	</tr>
 	 	<tr>
-	 	<td>도착 일 </td> <td><input type="date" name="end" value="2020-02-21"> </td>
+	 	<td>도착 일 </td> <td><input type="date" name="end" value="<%=date_today%>"> </td>
 	 	</tr>
 	 	
 
@@ -71,7 +83,7 @@
 	</div>
 </div>
 	
-
+</div>
 
 </body>
 </html>

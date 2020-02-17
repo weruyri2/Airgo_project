@@ -8,6 +8,13 @@
 	border-radius: 5px;
 }
 
+#map{
+	width: 1300px;
+	float: left;
+	margin-top: 160px;
+	margin-left: 340px;
+}
+
 body{
 	background: #092756;
 }

@@ -1,3 +1,4 @@
+<%@page import="com.air.reserve.ReserveBean"%>
 <%@page import="com.air.reserve.ReserveDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,23 +19,22 @@
 
 %>
 
-<jsp:useBean id="rb" class="com.air.reserve.ReserveBean" />
-<jsp:setProperty property="*" name="rb"/>
 
 <%
-	System.out.println(id+resname+pass);
+	ReserveDAO rdao = new ReserveDAO();
+
+	ReserveBean rb = rdao.getReserve(resname);	
 
 	System.out.println("삭제할 정보 : "+rb);
 
-	ReserveDAO rdao = new ReserveDAO();
 	
-	int check = rdao.deleteReserve(resname, id, pass);
+	int check = rdao.deleteReserve(rb, pass);
 	
 	if(check == 1){
 		%>
 		<script type="text/javascript">
 		alert("예약 삭제 완료");
-		location.href="res_info.jsp"
+		location.href="res_search.jsp"
 		</script>
 		<%
 	}else if(check == 0){

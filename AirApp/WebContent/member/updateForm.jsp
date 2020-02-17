@@ -10,6 +10,7 @@
 <link href="../css/write.css" rel="stylesheet">
 </head>
 <body>
+<div id="map">
 	
   <%		
   	request.setCharacterEncoding("UTF-8");
@@ -75,7 +76,7 @@
 
 </div>  
 
-
+</div>
 
 </body>
 </html>

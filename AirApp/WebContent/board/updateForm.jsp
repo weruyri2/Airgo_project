@@ -11,7 +11,7 @@
 <link href="../css/write.css" rel="stylesheet">
 </head>
 <body>
-
+<div id="map">
 	<%
 		// 글정보를 가져와서 페이지에 출력
 		// BoardDAO 객체 생성
@@ -65,6 +65,6 @@
 </div>
 
 </div>
-	
+</div>	
 </body>
 </html>
