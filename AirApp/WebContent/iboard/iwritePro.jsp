@@ -1,5 +1,5 @@
-<%@page import="com.air.board.BoardDAO"%>
-<%@page import="com.air.board.BoardBean"%>
+<%@page import="com.air.board.iBoardDAO"%>
+<%@page import="com.air.board.iBoardBean"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
@@ -46,7 +46,7 @@
 		// 글쓴이, 비밀번호, 제목, 내용, 첨부파일 => 전달받아서 DB로 전달
 		
 		// 자바빈 객체 생성
-		BoardBean bb = new BoardBean();
+		iBoardBean bb = new iBoardBean();
 		
 		bb.setName(multi.getParameter("name"));
 		bb.setPass(multi.getParameter("pass"));
@@ -86,12 +86,14 @@
 		///////////////////////////////////////
 		//디비 처리객체 생성
 		
-		BoardDAO bdao = new BoardDAO();
+		iBoardDAO bdao = new iBoardDAO();
 		// 메서드 호출 : insertBoard(bb);
 		bdao.insertBoard(bb);
 		
 		// 페이지 이동
 		String imgPath = conPath+"\\"+fileName;
+		
+		response.sendRedirect("iboardList.jsp");
 	%>
 		<img src="<%=imgPath%>">
 	

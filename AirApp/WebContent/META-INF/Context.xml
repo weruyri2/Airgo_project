@@ -9,7 +9,7 @@
 	 driverClassName="com.mysql.jdbc.Driver"
 	 url="jdbc:mysql://localhost:3306/air"
 	 username="root"
-	 password="1234"
+	 password="oracle"
 	 maxActivie="500"
 	 maxIdle="100"
 	/>

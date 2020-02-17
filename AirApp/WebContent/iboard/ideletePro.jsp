@@ -1,4 +1,4 @@
-<%@page import="com.air.board.BoardDAO"%>
+<%@page import="com.air.board.iBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,7 +18,7 @@
 		String pass = request.getParameter("pass");
 		
 		//BoardDAO 객체 생성
-		BoardDAO bdao = new BoardDAO();
+		iBoardDAO bdao = new iBoardDAO();
 		//->결과에 따라서 처리
 		// - deleteBoard(글번호,비밀번호);
 		int check = bdao.deleteBoard(num, pass);
@@ -27,7 +27,7 @@
 			%>
 			<script type="text/javascript">
 				alert("삭제 완료");
-				location.href="boardList.jsp?pageNym=<%=pageNum%>";
+				location.href="iboardList.jsp?pageNym=<%=pageNum%>";
 			</script>
 			
 			<%

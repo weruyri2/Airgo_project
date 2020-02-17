@@ -29,9 +29,6 @@
 	 <td class="tc">제목 </td> <td><input type="text" name="subject"> </td>
 	 	 </tr>
 	 <tr>
-	 <td class="tc">파일첨부 </td> <td><input type="file" name="file"> </td>
-	 	 </tr>
-	 <tr>
 	 <td class="tc">사진첨부 </td> <td><input type="file" name="imgfile"> </td>
 	 	 </tr>
 	 <tr>

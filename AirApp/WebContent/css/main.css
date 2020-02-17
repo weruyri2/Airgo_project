@@ -29,12 +29,13 @@ article{
 
 .content{
 	font-family: 'Jua', sans-serif;
-	float: left;
+	float: float;
 	width: 1060px;
 	margin-left: 20px;
 	background-color: #e0e0e0;
 
 }
+
 
 .content p{
 	margin: 5px;
@@ -42,9 +43,13 @@ article{
 
 .le{
 	float:left;
+	background-color: yellow;
 }
 .ri{
 	float:right;
+	width:500px;
+	
+		background-color: #e0e0e0;
 }
 
 
@@ -113,6 +118,21 @@ td{
 	font-family: 'Jua', sans-serif;
 	height:30px;
 	line-height: 30px;
+}
+
+.bd0{
+	float: left;
+	border-collapse:collapse;
+	background-color:white;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+}
+
+.bd1{
+	float: right;
+	border-collapse:collapse;
+	background-color:white;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
  
 /*  ----------------------------------------------------- */

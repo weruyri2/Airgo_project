@@ -1,3 +1,5 @@
+<%@page import="com.air.board.iBoardBean"%>
+<%@page import="com.air.board.iBoardDAO"%>
 <%@page import="com.air.board.BoardDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.air.board.BoardBean"%>
@@ -20,11 +22,11 @@
 <!-- 헤더파일들어가는 곳 -->
 <!-- 메인이미지 들어가는곳 -->
 <article>
+
 <div class="img">
 <img src="../images/main_img2.jpg" height=450 width=1100 >
 </div>
 
-<div>
 <!-- 메인이미지 들어가는곳 -->
 <!-- 메인 콘텐츠 들어가는 곳 -->
 <%
@@ -109,53 +111,80 @@
 	</table>
 	</div>
 	
+	
+<!-- 	사진 게시판 --!>
+	<%
+
+		iBoardDAO ibdao = new iBoardDAO();
+
+		int icnt = ibdao.getBoardCount();
+
+		int ipageSize = 4;
+		// 지금 위치하는 페이지의 정보를 저장
+		String ipageNum = request.getParameter("ipageNum");
+		if(ipageNum == null) {
+			ipageNum = "1";
+		}
+		
+		// 시작 행 계산 1.... 11..... 21..... 31... (pageNum,pageSize)
+		int icurrentPage = Integer.parseInt(pageNum);
+		
+		int istartRow = (currentPage-1)*pageSize+1;
+		int iendRow = currentPage * pageSize;
+		////////////////////////////////
+
+		List iboardList = null;
+		if( cnt !=0){
+			iboardList = ibdao.getBoardList(istartRow,ipageSize);
+		}
+	%>
+	
 	<div class="ri">
-	<p>이미지 게시판</p>
+	<p>사진 게시판</p>
 		
 	<%
-// 		for(int i=0; i< boardList.size(); i++){
-// 			BoardBean bb = (BoardBean)boardList.get(i);
-	if(boardList != null) {
-			for(int i=0; i<boardList.size(); i++){
-				BoardBean bb = (BoardBean)boardList.get(i);
+
+	if(iboardList != null) {
+			for(int i=0; i<iboardList.size(); i++){
+				iBoardBean ibb = (iBoardBean)iboardList.get(i);
 		
-	String conPath = request.getContextPath()+"/upload";
+	String iconPath = request.getContextPath()+"/upload";
 			
-	System.out.println(conPath);		
+	System.out.println(iconPath);		
 				
-	String imgPath = conPath+"\\"+bb.getFile();		
+	String imgPath = iconPath+"\\"+ibb.getFile();		
 	
 	
-	if(bb.getFile()!=null){
+	if(ibb.getFile()!=null){
 		
 	%>
 	
-	<table id="customers" class="bd<%=(i+1)%2%>">
+	<table id="customers" class="bd<%=(i+1)%2%>" width=250 height=180>
 	
 	<tr>		
 	<td class="sub" colspan="3">
-		<a href="content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
-	<img src="<%=imgPath%>" width=160 height=120></a>
+		<a href="../iboard/icontent.jsp?num=<%=ibb.getNum()%>&pageNum=<%=pageNum%>">
+	<img src="<%=imgPath%>" width=240 height=140></a>
 	</td>
 	</tr>
 	
 	<tr class="2r">
-	<td colspan="3"><%=bb.getSubject()%> <%=i+1%></td>
+	<td colspan="3"><%=ibb.getSubject()%> <%=i+1%></td>
 	</tr>	
 	<tr class="3r">
-	<td><%=bb.getName()%></td>
-	<td><%=bb.getDate() %></td>
-	<td><%=bb.getReadcount() %></td>
+	<td><%=ibb.getName()%></td>
+	<td><%=ibb.getDate() %></td>
+	<td><%=ibb.getReadcount() %></td>
 	</tr>	
 	</table>
 	<% 	}
 			}
 		} %>
-	</div>
-	
 </div>
-</div>
+
 </article>
+
+
 <!-- 메인 콘텐츠 들어가는 곳 -->
 <div class="clear"></div>
 <!-- 푸터 들어가는 곳 -->

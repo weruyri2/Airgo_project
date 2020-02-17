@@ -12,9 +12,10 @@
 <div class="left">
 <div class="list">
 <ul class="ul">
-	<li><a href="../board/boardList.jsp" >메인</a></li>
+	<li><a href="../board/boardList.jsp" >여행 게시판</a></li>
 	<li><a href="../board/fwriteForm.jsp" >게시판 글쓰기</a></li>	
-	<li><a href="../board/iboardList.jsp" >이미지 게시판</a></li>	
+	<li><a href="../iboard/iboardList.jsp" >사진 게시판</a></li>	
+	<li><a href="../iboard/iwriteForm.jsp" >사진 올리기</a></li>	
 
 </ul>
 </div>

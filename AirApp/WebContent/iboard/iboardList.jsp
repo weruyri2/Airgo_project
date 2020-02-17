@@ -63,7 +63,7 @@
 <jsp:include page="../inc/bo_leftside.jsp" />
 
 <div class="content">
-<h3> 이미지 게시판</h3>
+<h3>사진 게시판</h3>
 		
 	<%
 // 		for(int i=0; i< boardList.size(); i++){
@@ -87,7 +87,7 @@
 	
 	<tr>		
 	<td class="sub" colspan="3">
-		<a href="content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
+		<a href="icontent.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
 	<img src="<%=imgPath%>" width=400 height=300></a>
 	</td>
 	</tr>

@@ -45,7 +45,7 @@ public class iBoardDAO {
 	///////////////////////////////////////////////
 	
 	// insertBoard(bb)
-	public void insertBoard(BoardBean bb) {
+	public void insertBoard(iBoardBean bb) {
 		System.out.println("BoardDAO-insetBoard 호출 !!");
 		
 		int num = 0;
@@ -55,7 +55,7 @@ public class iBoardDAO {
 			con = getConn();
 		
 			//3 SQL 작성
-			sql = "select max(num) from board";
+			sql = "select max(num) from iboard";
 			pstmt = con.prepareStatement(sql);
 			//4 SQL 실행
 			rs = pstmt.executeQuery();
@@ -72,7 +72,7 @@ public class iBoardDAO {
 			// num + 전달한 정보 bb를 DB테이블에 저장
 			// 글쓰기
 			sql = "insert into "
-					+ "board(num,name,pass,subject,content,readcount,"
+					+ "iboard(num,name,pass,subject,content,readcount,"
 					+ "re_ref,re_lev,re_seq,date,ip,file)"
 					+ "values(?,?,?,?,?,?,?,?,?,now(),?,?)";
 			
@@ -140,7 +140,7 @@ public class iBoardDAO {
 			
 			con = getConn();
 			
-			sql = "select count(num) from board";
+			sql = "select count(num) from iboard";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -167,7 +167,7 @@ public class iBoardDAO {
 	}//getBoardCount()
 	
 	public ArrayList getBoardList1(int idx, int page) {
-		ArrayList<BoardBean> BoardList = new ArrayList<BoardBean>();
+		ArrayList<iBoardBean> BoardList = new ArrayList<iBoardBean>();
 			
 		try {
 			
@@ -177,7 +177,7 @@ public class iBoardDAO {
 			
 			int row = 0; 
 					
-			sql = "select * from board order by num desc limit ?, ?";
+			sql = "select * from iboard order by num desc limit ?, ?";
 		
 		
 			pstmt = con.prepareStatement(sql);
@@ -190,7 +190,7 @@ public class iBoardDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				BoardBean bb = new BoardBean();
+				iBoardBean bb = new iBoardBean();
 				
 				bb.setName(rs.getString("name"));
 				bb.setSubject(rs.getString("subject"));
@@ -223,14 +223,14 @@ public class iBoardDAO {
 			con = getConn();
 			
 			// 3 sql
-			sql = "select * from board";
+			sql = "select * from iboard";
 			
 			pstmt = con.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				BoardBean bb = new BoardBean();
+				iBoardBean bb = new iBoardBean();
 				
 				bb.setNum(rs.getInt("num"));
 				bb.setName(rs.getString("name"));
@@ -261,14 +261,14 @@ public class iBoardDAO {
 		
 	}//getBoardListAll
 	
-	public ArrayList<BoardBean> getBoardList(int startRow, int pageSize) {
+	public ArrayList<iBoardBean> getBoardList(int startRow, int pageSize) {
 		
-		ArrayList<BoardBean> boardList = new ArrayList<BoardBean>();
+		ArrayList<iBoardBean> boardList = new ArrayList<iBoardBean>();
 		
 		try {
 			con = getConn();
 			
-			sql = "select * from board "
+			sql = "select * from iboard "
 					+ "order by re_ref desc, re_seq asc "
 					+ "limit ?,?";
 			pstmt = con.prepareStatement(sql);
@@ -282,7 +282,7 @@ public class iBoardDAO {
 			// DB 정보 -> BoardBean 저장 -> boardList 한칸에 저장
 			
 			while(rs.next()){
-				BoardBean bb = new BoardBean();
+				iBoardBean bb = new iBoardBean();
 				
 				bb.setNum(rs.getInt("num"));
 				bb.setName(rs.getString("name"));
@@ -321,7 +321,7 @@ public class iBoardDAO {
 			
 			
 			//3 SQL (update) : num 해당하는 글정보중 조회수 (readcount)1증가
-			sql = "update board set readcount = readcount+1 where num = ?";
+			sql = "update iboard set readcount = readcount+1 where num = ?";
 		
 			
 			pstmt = con.prepareStatement(sql);
@@ -343,14 +343,14 @@ public class iBoardDAO {
 	}//updateReadCount();
 	
 	
-	public BoardBean getBoard(int num) {
-		BoardBean bb = null;
+	public iBoardBean getBoard(int num) {
+		iBoardBean bb = null;
 		
 		
 		try {
 			con = getConn();
 			
-			sql = "select * from board where num = ?";
+			sql = "select * from iboard where num = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -358,7 +358,7 @@ public class iBoardDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				bb = new BoardBean();
+				bb = new iBoardBean();
 				
 				bb.setNum(rs.getInt("num"));
 				bb.setName(rs.getString("name"));
@@ -389,7 +389,7 @@ public class iBoardDAO {
 	}// getBoard(num)
 	
 	
-	public int updateBoard(BoardBean bb){
+	public int updateBoard(iBoardBean bb){
 		
 		int check = -1;
 		System.out.println("update 확인");
@@ -402,7 +402,7 @@ public class iBoardDAO {
 				return check;
 			}
 			
-			sql = "select pass from board where num = ?";
+			sql = "select pass from iboard where num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, bb.getNum());
 	
@@ -415,7 +415,7 @@ public class iBoardDAO {
 				if(bb.getPass().equals(rs.getString("pass"))){
 					//비밀번호 같음
 					
-					sql = "update board set name=?, subject=?, content=? where num= ? ";
+					sql = "update iboard set name=?, subject=?, content=? where num= ? ";
 
 					pstmt = con.prepareStatement(sql);
 					
@@ -462,7 +462,7 @@ public class iBoardDAO {
 			
 			con = getConn();
 			
-			sql = "select pass from board where num = ?";
+			sql = "select pass from iboard where num = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -471,7 +471,7 @@ public class iBoardDAO {
 			if(rs.next()){
 				if(pass.equals(rs.getString("pass"))){
 					check=1;
-					sql = "delete from board where num = ?";
+					sql = "delete from iboard where num = ?";
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1, num);
 					pstmt.executeUpdate();
@@ -499,7 +499,7 @@ public class iBoardDAO {
 	}//deleteBoard("num","pass");
 	
 	
-	public void reInsertBoard(BoardBean bb){
+	public void reInsertBoard(iBoardBean bb){
 		
 		int num = 0;
 		// 디비 연결
@@ -509,7 +509,7 @@ public class iBoardDAO {
 		try {
 			con = getConn();
 			
-			sql = "select max(num) from board";
+			sql = "select max(num) from iboard";
 			pstmt = con.prepareStatement(sql);
 			//4 SQL 실행
 			rs = pstmt.executeQuery();
@@ -540,7 +540,7 @@ public class iBoardDAO {
 			// re_ref(같은그룹), re_seq 기존의 값보다 큰 값이 있을경우
 			// 순서변경하기 위해 re_seq+1
 			//3
-			sql = "update board set re_seq=re_seq+1 "
+			sql = "update iboard set re_seq=re_seq+1 "
 					+ "where re_ref=? and re_seq>? ";
 			
 			pstmt = con.prepareStatement(sql);
@@ -555,7 +555,7 @@ public class iBoardDAO {
 			// num + 전달한 정보 bb를 DB테이블에 저장
 			// 답글쓰기
 			sql = "insert into "
-						+ "board(num,name,pass,subject,content,readcount,"
+						+ "iboard(num,name,pass,subject,content,readcount,"
 						+ "re_ref,re_lev,re_seq,date,ip,file)"
 						+ "values(?,?,?,?,?,?,?,?,?,now(),?,?)";
 				
