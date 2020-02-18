@@ -1,3 +1,6 @@
+<%@page import="com.air.board.CometBean"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.air.board.CometDAO"%>
 <%@page import="com.air.board.BoardBean"%>
 <%@page import="com.air.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -17,6 +20,10 @@
 //*페이지 이동시 전달되는 파라미터값 있을경우 항상 먼저 저장(처리)해야한다.
 //~/content.jsp?num=5&pageNum=2
 //파라미터값 저장 num(int), pageNum(String)
+
+		request.setCharacterEncoding("utf-8");
+		
+		String id = (String)session.getAttribute("id");	
 
 int num = Integer.parseInt(request.getParameter("num"));
 String pageNum = request.getParameter("pageNum");
@@ -87,6 +94,49 @@ BoardBean bb = bdao.getBoard(num);
 	<table border="1" id="customers">
 	
 	<tr>
+	<td class="name">작성자</td>
+	<td class="sub">댓글</td>
+	</tr>
+	<%
+		int board_num = bb.getNum();
+	
+		CometDAO cdao = new CometDAO();
+		
+		ArrayList<CometBean> cometList = cdao.cometList(board_num);
+		
+		if(cometList != null) {
+			for(int i=0; i<cometList.size(); i++){
+				CometBean cb = (CometBean)cometList.get(i);
+	
+	%>
+	<tr>
+	<td class="name"><%=cb.getId()%></td>
+	<td class="sub"><%=cb.getContent()%></td>
+	</tr>
+	
+	<%	} 
+	}%>
+	</table>
+		
+	<form action="cometPro.jsp" method="post">
+	<table class="tab">
+	 <tr>
+	 <td class="com1" 	align="center">Comment
+	 </td>
+	 <td class="com2">
+	 <input type="submit" value="댓글쓰기" >
+	 <textarea rows="10" cols="20" name="content"></textarea>
+	 	<input type="hidden" name="board_num" value="<%=bb.getNum()%>">
+	</td>
+	</tr>
+	
+		
+	</table>
+	</form>	
+	
+	<table border="1" id="customers">
+	
+	<tr>
 	<td colspan="6" align="right">
 		<input type="button" value="수정하기" 
 			onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';"
@@ -94,9 +144,6 @@ BoardBean bb = bdao.getBoard(num);
 		<input type="button" value="삭제하기"
 			onclick="location.href='deleteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';"
 			>
-		<input type="button" value="답글쓰기"
-			onclick="location.href='reWriteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>&re_lev=<%=bb.getRe_lev()%>&re_ref=<%=bb.getRe_ref()%>&re_seq=<%=bb.getRe_seq()%>';"
-		>
 		<input type="button" value="목록보기" 
 		onclick="location.href='boardList.jsp?pageNum=<%=pageNum%>';">
 		</td>

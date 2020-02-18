@@ -93,7 +93,7 @@
 	</tr>
 	
 	<tr class="2r">
-	<td colspan="3"><p><%=bb.getSubject()%> <%=i+1%><p></td>
+	<td colspan="3"><p><%=bb.getSubject()%><p></td>
 	</tr>
 		
 	<tr class="3r">

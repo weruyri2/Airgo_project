@@ -30,9 +30,7 @@
 
 
 <%if(id.equals("admin")) { %>
-	<li><a href="../reserve/res_info.jsp" >예약 확인</a></li>
-	<li><a href="#" >예약 수정</a></li>
-	<li><a href="#">예약 삭제</a></li>	
+	<li><a href="../reserve/res_info.jsp" >회원 예약 확인</a></li>
 <%} %>
 	
 </ul>

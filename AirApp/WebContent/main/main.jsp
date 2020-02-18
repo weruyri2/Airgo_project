@@ -127,14 +127,14 @@
 		}
 		
 		// 시작 행 계산 1.... 11..... 21..... 31... (pageNum,pageSize)
-		int icurrentPage = Integer.parseInt(pageNum);
+		int icurrentPage = Integer.parseInt(ipageNum);
 		
-		int istartRow = (currentPage-1)*pageSize+1;
-		int iendRow = currentPage * pageSize;
+		int istartRow = (icurrentPage-1)*ipageSize+1;
+		int iendRow = icurrentPage * ipageSize;
 		////////////////////////////////
 
 		List iboardList = null;
-		if( cnt !=0){
+		if( icnt !=0){
 			iboardList = ibdao.getBoardList(istartRow,ipageSize);
 		}
 	%>
@@ -169,7 +169,7 @@
 	</tr>
 	
 	<tr class="2r">
-	<td colspan="3"><%=ibb.getSubject()%> <%=i+1%></td>
+	<td colspan="3"><%=ibb.getSubject()%></td>
 	</tr>	
 	<tr class="3r">
 	<td><%=ibb.getName()%></td>
@@ -185,11 +185,14 @@
 </article>
 
 
-<!-- 메인 콘텐츠 들어가는 곳 -->
-<div class="clear"></div>
+<!-- 아래 컨텐츠 들어가는 곳 -->
+<div class="clear">
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"/>
 <!-- 푸터 들어가는 곳 -->
+</div>
+
+
 </div>
 </body>
 </html>

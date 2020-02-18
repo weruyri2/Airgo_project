@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/infoForm.css" rel="stylesheet">
-<link href="../css/input.css" rel="stylesheet">
 </head>
 <body>
 <div id="map">
@@ -59,7 +58,8 @@
       <td><%=ab.getStart() %></td>
 
       <td><%=ab.getEnd() %></td>
-   </tr>
+
+    </tr>
 	<%} %>
   </table>
   

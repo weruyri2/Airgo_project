@@ -9,8 +9,7 @@
 
 <div class="mcon">
 
-<div class="logo">
-</div>
+<div id="logo"><a href="../main/main.jsp" ><img src="../images/logo.png" width="250" height="80"></a></div>
 
 <nav class="menu">
 

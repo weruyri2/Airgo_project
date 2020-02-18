@@ -20,15 +20,21 @@
 	
 	MemberDAO mdao = new MemberDAO();
 	
-	mdao.insertMember(mb);
+	int check = mdao.insertMember(mb);
+
 	
+	if(check==1){
 	%>
-	 
 	 <script type="text/javascript">
 	 	alert("회원가입 성공");
 	 	location.href="loginForm.jsp";
 	 </script>
-	 
+	 <%}else{ %>
+	 	 <script type="text/javascript">
+	 	alert("회원가입 실패");
+		history.back();
+	 </script>
+	 <%} %>
 	 
 	
 </body>

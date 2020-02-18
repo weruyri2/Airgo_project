@@ -9,15 +9,11 @@
 </head>
 <body>
 	<%
-	// 세션값 체크
-	String id = (String) session.getAttribute("id");
 	
-	if(id == null){
-		response.sendRedirect("main.jsp");
-	}
-	// 한글처리
 	request.setCharacterEncoding("UTF-8");
 	// 전달되는 파라미터값 저장 (id,pass)
+	
+	String id = request.getParameter("id");
 	String pass = request.getParameter("pass");
 	
 	%>
@@ -40,11 +36,10 @@
 	System.out.println("check : " +check);
 	
 	if(check == 1){
-		session.removeAttribute("id");
 		%>
 		<script type="text/javascript">
 		alert("정보 삭제 완료");
-		location.href="../main/memainForm.jsp"
+		history.back();
 		</script>
 		<%
 	}else if(check == 0){

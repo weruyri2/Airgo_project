@@ -51,7 +51,7 @@
 #customers tr:hover {background-color: #ddd;}
 
 input[type=submit],[type=button] {
-	float:right;
+	float:left;
 	width: auto;
 	height: 40px;
 	padding: 10px 8px;

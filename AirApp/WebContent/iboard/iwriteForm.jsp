@@ -38,7 +38,7 @@
 	 <td colspan="2"><textarea rows="10" cols="20" name="content"></textarea></td>
 	 	 </tr>
 	 <tr>
-	 <td colspan="2"> <input type = "submit" value = "작성"> </td>
+	 <td colspan="2"> <input type = "submit" value = "작성하기"> </td>
 	 </tr>
 	</table>
 	</form>

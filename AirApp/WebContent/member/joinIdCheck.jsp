@@ -6,40 +6,72 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/joincheck.css" rel="stylesheet">
 </head>
 <body>
 	<%
 		String id = request.getParameter("userid");
+		String jumin = request.getParameter("userjumin");
+		String email = request.getParameter("useremail");
 	
 		MemberDAO mdao = new MemberDAO();
 		
 		int check = mdao.joinIdCheck(id);
-		
-		if(check == 1){
-			out.print("<h3> 사용중인 아이디입니다. </h3>");
-		}else{
-			out.print("<h3> 사용 가능한 아이디 입니다. </h3>");
-			%>
-				<input type="button" value="아이디 사용하기 " onclick="setId();">
-			<%
-		}
+		int check2 = mdao.joinEmailCheck(email);
+		int check3 = mdao.joinJuminCheck(jumin);
 	
 	%>
 	
 	<br>
 	<fieldset>
-		<legend> 아이디 중복 체크</legend>
+		<legend>중복 확인</legend>
 		<form action="joinIdCheck.jsp" method="post" name="idfr">
-		 아이디 : <input type="text" name="userid" value="<%=id %>" >
+		<label> 아이디 </label> <input type="text" name="userid" value="<%=id %>" > <br>
 		 	<input type="submit" value="중복체크">
 		</form>
 	</fieldset>
+	
+	<%
+	
+	if(check == 1){
+		out.print("<h3> 사용중인 아이디입니다. </h3>");
+	}else{
+		out.print("<h3> 중복 아이디가 아닙니다. </h3>");
+		%>
+			<input type="button" value="아이디 사용하기 " onclick="setId();">
+		<%
+	}
+	
+	if(check2 == 1){
+		out.print("<h3> 사용중인 이메일입니다. </h3>");
+	}
+	if(check3 == 1){
+		out.print("<h3> 사용중인 주민번호입니다. </h3>");
+	}
+	
+	
+	
+	%>
+	
 	
 
 </body>
 
 	<script type="text/javascript">
 	function setId() {
+		
+		var formId2 = document.idfr.userid.value;
+		
+		if(formId2 == ""){
+			alert("id정보를 입력하시오. ");
+			document.fr.id.focus();
+			return false;
+		}else if( !(4<=formId2.length && formId2.length<=12) ){
+			alert("아이디의 길이가 4~12이어야 합니다.");
+			document.fr.id.focus();
+		}
+		
+		
 		opener.document.fr.id.value = document.idfr.userid.value;
 		window.close();
 	}

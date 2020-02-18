@@ -9,7 +9,19 @@
 </head>
 <body>
 
+<%
+	request.setCharacterEncoding("UTF-8");
 	
+	String id = (String)session.getAttribute("id");
+	
+	System.out.println("세션 값"+id);
+	
+	if(id==null){
+		id = "";
+	}
+	
+%>
+
 <div class="left">
 <div class="list">
 <ul class="ul">
@@ -18,6 +30,10 @@
 	<li><a href="../member/infoForm.jsp" >회원 정보 조회</a></li>
 	<li><a href="../member/updateForm.jsp" >회원 정보 수정</a></li>
 	<li><a href="../member/deleteForm.jsp" >회원 정보 탈퇴</a></li>
+	
+	<%if(id.equals("admin")) { %>
+	<li><a href="../member/meList.jsp">회원 리스트</a></li>	
+<%} %>		
 </ul>
 </div>
 </div>

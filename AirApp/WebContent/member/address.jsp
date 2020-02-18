@@ -1,4 +1,3 @@
-<%@page import="com.air.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,51 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/joinForm.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-
-
-<div id="lodiv" class="loclass">
-
-	<form action="joinPro.jsp" method="post" name="fr" id="join" onsubmit="return cksubmit();">
-	<fieldset class="fd">
-	<legend>Sign Up</legend>
-	<label>아이디</label><br>	<input type="text" name="id" required> 
-	<input type="button" name="btn" value="중복 확인" onclick="winopen();"> <br> 
-	<label>패스워드</label><br> <input type="password" name="pass" required> <br>
-	<label>이름</label><br> <input type="text" name="name" required> <br>
-	<label>주민번호</label><br> <input type="text" name="jumin" required> <br>
-	<label>이메일</label><br> <input type="email" name="email" required> <br>
-	<label>전화번호</label><br> <input type="text" name="phone"> <br>
-	
-	<div><label>주소</label> <br>
-	<input type="text" id="sample6_postcode" placeholder="우편번호">
-	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-	<input type="text" id="sample6_address" placeholder="주소"><br>
-	<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-	<input type="text" id="sample6_extraAddress" placeholder="참고항목">
-	<input type="hidden" id="address" name="address">
-	</div>
-	
-
-	
-	<input type="hidden" name="key" value="no"> <br>
-	
-
-	<input type="submit" value="회원가입" id="submit" > <br><br>
-	
-	<div class="a">
-	<a href="loginForm.jsp">로그인</a> / <a href="../main/main.jsp">메인이동</a>
-	</div>
-	
-	</fieldset>
-	</form>
-	
-</div>
-
-
+<input type="text" id="sample6_postcode" placeholder="우편번호">
+<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+<input type="text" id="sample6_address" placeholder="주소"><br>
+<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+<input type="text" id="sample6_extraAddress" placeholder="참고항목">
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -98,59 +59,10 @@
                 document.getElementById("sample6_address").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("sample6_detailAddress").focus();
-                       
-                document.getElementById("address").value = document.getElementById("sample6_extraAddress").value+
-  		        +document.getElementById('sample6_postcode').value+
-                document.getElementById("sample6_address").value;
-                
             }
         }).open();
     }
 </script>
 
-
-
 </body>
-
-	<script type="text/javascript">
-		function winopen() {
-			
-			var formId = document.fr.id.value;
-			
-			if(formId == ""){
-				alert("id정보를 입력하세요. ");
-				document.fr.id.focus();
-				return false;
-			}else if( !(4<=formId.length && formId.length<=12) ){
-				alert("아이디의 길이가 4~12이어야 합니다.");
-				document.fr.id.focus();
-			}else{
-			
-			window.open("joinIdCheck.jsp?userid="+formId,"","width=500,height=250,"
-					+"menubar=no, location=no, toolbar=no");
-			}
-		}
-
-		
-		function cksubmit() {
-			
-			
-			document.getElementById("address").value = document.getElementById("address").value+document.getElementById("sample6_detailAddress").value;
-			
-			if(document.fr.key.value=="ok"){
-				return true;
-			}
-			
-			var formJumin = document.fr.jumin.value;
-			var formEmail = document.fr.email.value;
-			
-			window.open("joinCheck.jsp?useremail="+formEmail+"&userjumin="+formJumin,"","width=550,height=350,"
-					+"menubar=no, location=no, toolbar=no");
-			
-			return false;
-
-			}
-		
-	</script>
-
 </html>

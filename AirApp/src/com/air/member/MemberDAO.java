@@ -47,7 +47,8 @@ public class MemberDAO {
 	///////////////////////////////////////////////
 	
 	//회원 가입
-	public void insertMember(MemberBean mb){
+	public int insertMember(MemberBean mb){
+		int check = -1;
 		
 		try {
 			con = getConn();
@@ -68,13 +69,16 @@ public class MemberDAO {
 			pstmt.executeUpdate();
 			
 			System.out.println("가입 완료");
-			
+			check = 1;
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("가입 실패");
+			check = 0;
 		}finally{
 			closeDB();
 		}
+		
+		return check;
 	}
 	//insertMember
 	
@@ -110,6 +114,69 @@ public class MemberDAO {
 		return idcheck;
 	}
 	//joinIdCheck
+	
+	//주민번호 중복체크
+	public int joinJuminCheck(String jumin) {
+		int jumincheck = -1;
+		
+		try {
+			con = getConn();
+			
+			sql = "select jumin from member";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				if(jumin.equals(rs.getString("jumin"))){
+					System.out.println("jumin = " + rs.getString("jumin"));
+					jumincheck = 1;
+					break;
+				}else{
+					System.out.println("주민번호 사용 불가");
+					jumincheck = 0;
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		
+		return jumincheck;
+	}
+	
+	//이메일 중복체크
+	public int joinEmailCheck(String email) {
+		int emailcheck = -1;
+		
+		try {
+			con = getConn();
+			
+			sql = "select email from member";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				if(email.equals(rs.getString("email"))){
+					System.out.println("email = " + rs.getString("email"));
+					emailcheck = 1;
+					break;
+				}else{
+					System.out.println("이메일 사용 불가");
+					emailcheck = 0;
+				}
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		
+		return emailcheck;
+	}
 	
 	//회원 로그인
 	public int LoginCheck(String id, String pass) {
@@ -152,9 +219,8 @@ public class MemberDAO {
 	}
 	//loginCheck
 	
-	//getMember
+	//회원 정보
 	public MemberBean getMember(String id) {
-		System.out.println("MemberDAO-getMember 호출");
 	
 		MemberBean mb = null;
 		
@@ -196,7 +262,7 @@ public class MemberDAO {
 	//getMember
 	
 	
-	//updateMember
+	//회원 정보 수정
 	public int updateMember(MemberBean mb) {
 		int check = -1;
 		
@@ -209,12 +275,9 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, mb.getId());
-			
-			//4
+
 			rs = pstmt.executeQuery();
-			
-			//5
-			
+						
 			if(rs.next()){
 				if(mb.getPass().equals(rs.getString("pass"))){
 					
@@ -252,7 +315,7 @@ public class MemberDAO {
 	}
 	//updateMember
 	
-	//deleteMember
+	//회원 정보 삭제
 	public int deleteMember(String id, String pass) {
 		System.out.println("deleteMember");
 		int check = -1;
@@ -297,7 +360,7 @@ public class MemberDAO {
 	}
 	//deleteMember
 	
-	//getMemberReserve
+	//회원 예약정보
 	public ArrayList getMemberReserve(String id) {
 		
 		ArrayList<ReserveBean> reserveList = new ArrayList<ReserveBean>();
@@ -337,8 +400,51 @@ public class MemberDAO {
 		
 		
 	}
+	//getMemberReserve
 	
+	//회원 정보 리스트
+	public ArrayList<MemberBean> getMemberList(){
+		
+		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
+		
+		try {
+			
+			con = getConn();
+			
+			sql = "select * from member";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				MemberBean mb = new MemberBean();
+				
+				mb.setId(rs.getString("id"));
+				mb.setPass(rs.getString("pass"));
+				mb.setName(rs.getString("name"));
+				mb.setJumin(rs.getString("jumin"));
+				mb.setEmail(rs.getString("email"));
+				mb.setPhone(rs.getString("phone"));
+				mb.setAddress(rs.getString("address"));
+				
+				memberList.add(mb);
+			}
+			
+			System.out.println("회원 정보 검색 완료");
+			
 	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		
+		
+		
+		return memberList;
+	}
+	//getMemberList
 	
 	
 	

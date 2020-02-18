@@ -2,7 +2,7 @@
 
 
 article{
-	height:800px;
+	height:1200px;
 	width:1100px;
 	margin:40px;
 	padding:10px;
@@ -17,7 +17,14 @@ article{
 		
 /* } */
 
-@CHARSET "UTF-8";
+
+.clear{
+	height:400px;
+	width:1100px;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-image: url("../images/map2.png");
+}
 
 
 #map{
@@ -43,7 +50,7 @@ article{
 
 .le{
 	float:left;
-	background-color: yellow;
+	background-color: #e0e0e0;
 }
 .ri{
 	float:right;
