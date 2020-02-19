@@ -5,6 +5,7 @@ public class CometBean {
 	private String id;
 	private int board_num;
 	private String content;
+	
 	public String getId() {
 		return id;
 	}

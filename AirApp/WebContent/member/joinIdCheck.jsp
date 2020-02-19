@@ -10,6 +10,8 @@
 </head>
 <body>
 	<%
+		request.setCharacterEncoding("UTF-8");
+	
 		String id = request.getParameter("userid");
 		String jumin = request.getParameter("userjumin");
 		String email = request.getParameter("useremail");

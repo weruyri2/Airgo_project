@@ -25,13 +25,14 @@
 		
 		if(id!=null){
 		%>	
-			<a href="#"><%=id%> </a>  | <a href="../member/logout.jsp">로그아웃</a>
+			<a href="../member/infoForm.jsp"><%=id%> </a>  | <a href="../member/logout.jsp">로그아웃</a> 
+
 		<%	
 		}else{
 		%>
-		<a href="../member/loginForm.jsp">로그인</a> | <a href="../member/joinForm.jsp">회원가입</a>
+			<a href="../member/loginForm.jsp">로그인</a> | <a href="../member/joinForm.jsp">회원가입</a>
 		<%} %>
-	
+		
 	</div>
 	<div class="nav-underline"></div>
 	

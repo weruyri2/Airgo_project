@@ -20,89 +20,60 @@
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"/>
 <!-- 헤더파일들어가는 곳 -->
-<!-- 메인이미지 들어가는곳 -->
-<article>
 
-<div class="img">
+<article>
+<!-- 메인이미지 들어가는곳 -->
+<div class="mainimg">
 <img src="../images/main_img2.jpg" height=450 width=1100 >
 </div>
-
 <!-- 메인이미지 들어가는곳 -->
-<!-- 메인 콘텐츠 들어가는 곳 -->
-<%
-// 글목록 불러오기() (글이 있을떄만 가져오기)
 
-// 디비처리 객체
+<%
+
 	BoardDAO bdao = new BoardDAO();
 
 	int cnt = bdao.getBoardCount();
 	
-	//////////////////////////////
-	//페이징 처리
-	// 한페이지에서 보여줄 글의 개수를 설정
-	int pageSize = 6;
-	// 지금 위치하는 페이지의 정보를 저장
+	int pageSize = 10;
+
 	String pageNum = request.getParameter("pageNum");
 	if(pageNum == null) {
 		pageNum = "1";
 	}
 	
-	// 시작 행 계산 1.... 11..... 21..... 31... (pageNum,pageSize)
 	int currentPage = Integer.parseInt(pageNum);
 	
 	int startRow = (currentPage-1)*pageSize+1;
 	int endRow = currentPage * pageSize;
-	//////////////////////////////
 
 	List boardList = null;
 	if( cnt !=0){
 		boardList = bdao.getBoardList(startRow,pageSize);
 	}
 %>
-
+<!-- 메인 콘텐츠 들어가는 곳 -->
 <div class="content">
 
-	<div class="le">
+	<div class="tripBo">
 	<p>여행 게시판</p>
 	<table id="customers" class="bd">
 	<tr class="one">
 	<td class="sub">Subject</td>
 	<td class="name">Name</td>
 	</tr>
-
 	
-	<%
-	
+	<%	
 	if(boardList != null) {
 			for(int i=0; i<boardList.size(); i++){
 				BoardBean bb = (BoardBean)boardList.get(i);		
-
 	%>
 	
 	<tr>	
-	<td class="sub">
-	
-	<%	//답글 들여쓰기 일반글 들여쓰기 X. 답글 level값에 따라서 들여쓰기 변경 
-	
-	int wid = 0;
-	int k = bb.getRe_lev();
-	
-	if(k!=0){ 
-		wid = 10*k;
-		%>
-		<img src="level.gif" height="15" width="<%=wid%>">
-		<img src="re.gif">
-		<%
-	}
-	%>
-	
+	<td class="sub">	
 	<a href="../board/content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
-			<%=bb.getSubject() %></a>
-			
+			<%=bb.getSubject() %></a>			
 	</td>
-
 	<td class="name"><%=bb.getName()%></td>	
-
 	</tr>
 	
 	<% 	}
@@ -111,8 +82,11 @@
 	</table>
 	</div>
 	
+	<div class="imgBo">
+	<p>사진 게시판</p>
 	
-<!-- 	사진 게시판 --!>
+	<ul class="ibul">	
+
 	<%
 
 		iBoardDAO ibdao = new iBoardDAO();
@@ -120,29 +94,21 @@
 		int icnt = ibdao.getBoardCount();
 
 		int ipageSize = 4;
-		// 지금 위치하는 페이지의 정보를 저장
+
 		String ipageNum = request.getParameter("ipageNum");
 		if(ipageNum == null) {
 			ipageNum = "1";
 		}
-		
-		// 시작 행 계산 1.... 11..... 21..... 31... (pageNum,pageSize)
+
 		int icurrentPage = Integer.parseInt(ipageNum);
 		
 		int istartRow = (icurrentPage-1)*ipageSize+1;
 		int iendRow = icurrentPage * ipageSize;
-		////////////////////////////////
 
 		List iboardList = null;
 		if( icnt !=0){
 			iboardList = ibdao.getBoardList(istartRow,ipageSize);
 		}
-	%>
-	
-	<div class="ri">
-	<p>사진 게시판</p>
-		
-	<%
 
 	if(iboardList != null) {
 			for(int i=0; i<iboardList.size(); i++){
@@ -154,34 +120,25 @@
 				
 	String imgPath = iconPath+"\\"+ibb.getFile();		
 	
-	
-	if(ibb.getFile()!=null){
-		
 	%>
 	
-	<table id="customers" class="bd<%=(i+1)%2%>" width=250 height=180>
-	
-	<tr>		
-	<td class="sub" colspan="3">
-		<a href="../iboard/icontent.jsp?num=<%=ibb.getNum()%>&pageNum=<%=pageNum%>">
-	<img src="<%=imgPath%>" width=240 height=140></a>
-	</td>
-	</tr>
-	
-	<tr class="2r">
-	<td colspan="3"><%=ibb.getSubject()%></td>
-	</tr>	
-	<tr class="3r">
-	<td><%=ibb.getName()%></td>
-	<td><%=ibb.getDate() %></td>
-	<td><%=ibb.getReadcount() %></td>
-	</tr>	
-	</table>
+	<li class="ibli">
+	 <div class="image">
+	 	<a href="../iboard/icontent.jsp?num=<%=ibb.getNum()%>&pageNum=<%=pageNum%>" >
+		<img src="<%=imgPath%>" width=260  height=130></a>
+	 </div>
+	 <div class="desc">
+		<a href="../iboard/icontent.jsp?num=<%=ibb.getNum()%>&pageNum=<%=pageNum%>" >
+		<%=ibb.getSubject()%>
+		[<%=ibb.getReadcount() %>] </a>
+	 </div>	
+	</li>
 	<% 	}
-			}
-		} %>
+	}
+	%>
+	</ul>
+	</div>
 </div>
-
 </article>
 
 

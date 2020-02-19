@@ -2,21 +2,12 @@
 
 
 article{
-	height:1200px;
+	height:1000px;
 	width:1100px;
 	margin:40px;
 	padding:10px;
 /* 	background-color: #dcddd9; */
 }
-
-/* img{ */
-/* 	margin:0; */
-/* 	padding:0; */
-/* 	height:450px; */
-/* 	width:1100px; */
-		
-/* } */
-
 
 .clear{
 	height:400px;
@@ -30,7 +21,6 @@ article{
 #map{
 	width: 1300px;
 	float: left;
-	
 	margin-left: 340px;
 }
 
@@ -38,39 +28,104 @@ article{
 	font-family: 'Jua', sans-serif;
 	float: float;
 	width: 1060px;
+	margin-top: 20px;
 	margin-left: 20px;
 	background-color: #e0e0e0;
 
 }
 
+.content a{
+	font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: normal;
+    letter-spacing: 0px;
+    font-style: normal;
+    text-decoration: none;
+}
 
 .content p{
+	text-align: center;
+	font-size: 20px;
 	margin: 5px;
+	border-top : 3px solid #0080c0;
+	border-bottom : 2px solid #bcbcbc;
 }
 
-.le{
+/* 메인화면 미니 게시판 */
+.tripBo{
 	float:left;
-	background-color: #e0e0e0;
-}
-.ri{
-	float:right;
 	width:500px;
-	
-		background-color: #e0e0e0;
+	height:390px;
+	background-color: #f3f3f3;;
 }
-
 
 .bd {
 	border-collapse:collapse;
-	height:70%;
-	width: 400px;
-	margin:5px;
+	height:82%;
+	width: 90%;
+	margin-left:22px;
+	padding: 5px;
 	background-color:white;
 	font-family: 'Noto Sans KR', sans-serif;
-
-
-
 }
+
+/* 이미지 게시판 */
+
+.imgBo{
+	float:right;
+	width:550px;
+	height:390px;
+	overflow:hidden;
+	background-color: #f3f3f3;;
+}
+
+.imgBo > ul {
+	background-color: #f3f3f3;
+    overflow: hidden;
+    padding: 4px;
+    box-sizing: border-box;
+    font-size: 0;
+}
+
+.imgBo > ul > li {
+	display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+}
+
+imgBo > ul > li > .image > a > img{
+	width: 320px;
+    height: 160px;
+    object-fit: cover;
+}
+
+imgBo > ul > li > .image{
+    display: block;
+    position: relative;
+    border: 1px solid #8c8c8c;
+    overflow: hidden;
+    height: 83px;
+}
+
+imgBo > ul > li > * > a {
+	display: block;
+    text-align: center;
+}
+
+
+imgBo > ul > li > .desc{
+	text-align: center;
+    margin: 6px 0 -4px 0;
+}
+
+
+/* --------------------------------*/
+
 
 .paging{
 	text-align:center;
@@ -96,7 +151,7 @@ td{
 	text-align: left;
 }
 .name{
-	width:70px;	
+	width:100px;	
 }
 .date{
 	width:100px;
@@ -127,20 +182,6 @@ td{
 	line-height: 30px;
 }
 
-.bd0{
-	float: left;
-	border-collapse:collapse;
-	background-color:white;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-
-}
-
-.bd1{
-	float: right;
-	border-collapse:collapse;
-	background-color:white;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
  
 /*  ----------------------------------------------------- */
  

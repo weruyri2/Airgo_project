@@ -18,14 +18,14 @@
 <div id="map">
 	<%
 		request.setCharacterEncoding("UTF-8");
-	
+		
 		String id = (String)session.getAttribute("id");
-			
+					
 		String depart = request.getParameter("depart");
 		String arrive = request.getParameter("arrive");
 		int seat = Integer.parseInt(request.getParameter("seat"));
 		String start = request.getParameter("start");
-		String end = request.getParameter("end");
+		String end = request.getParameter("end");		
 		
 		//출발일 도착일 sql Date형변환
 		Date date_start = Date.valueOf(start);
@@ -40,16 +40,12 @@
 		
 		ReserveDAO rdao = new ReserveDAO();
 		ArrayList<AirplaneBean> airplaneList = rdao.serchAirplane(depart,arrive,date_start,date_end);
+	
+		System.out.println("출발, 도착, 좌석"+depart+arrive+seat);
+	
 	%>
 	
-	
-	<c:set var="dep" value="<%=depart%>" />
-	<c:set var="arr" value="<%=arrive%>" />
-	<c:set var="sea" value="<%=seat%>" />
-	<c:set var="sta" value="<%=date_start%>" />
-	<c:set var="tod" value="<%=date_today%>" />
-	
-
+	<c:set var="depart" value="<%=depart %>"/>
 
 <jsp:include page="../inc/top.jsp"/>
 
@@ -65,18 +61,18 @@
 	 	<tr>
 	 	<td>출발지 : </td> 
 	 	<td><select name = "depart">
-	 		<option value="부산">부산</option>
-	 		<option value="인천">인천</option>
-	 		<option value="광주">광주</option>
+	 		<option value="부산" <c:if test="${depart=='부산'}">selected </c:if> >부산</option>
+	 		<option value="인천" <c:if test="${depart=='인천'}">selected </c:if> >인천</option>
+	 		<option value="광주" <c:if test="${depart=='광주'}">selected </c:if> >광주</option>
 	 	</select> </td>
 
 	 	<td>목적지 : </td>
 	 	<td><select name = "arrive">
-	 		<option value="오사카">오사카</option>
-	 		<option value="후쿠오카">후쿠오카</option>
-	 		<option value="홍콩">홍콩</option>
-	 		<option value="타이페이">타이페이</option>
-	 		<option value="방콕">방콕</option>
+	 		<option value="오사카" <%if(arrive.equals("오사카")){ %>selected<%} %>>오사카</option>
+	 		<option value="후쿠오카" <%if(arrive.equals("후쿠오카")){ %>selected<%} %>>후쿠오카</option>
+	 		<option value="홍콩" <%if(arrive.equals("홍콩")){ %>selected<%} %>>홍콩</option>
+	 		<option value="타이페이" <%if(arrive.equals("타이페이")){ %>selected<%} %>>타이페이</option>
+	 		<option value="방콕" <%if(arrive.equals("방콕")){ %>selected<%} %>>방콕</option>
 	 	</select> </td>
 	 	
 	 	<td>좌석 수 : </td>

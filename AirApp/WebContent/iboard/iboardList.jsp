@@ -93,7 +93,8 @@
 	</tr>
 	
 	<tr class="2r">
-	<td colspan="3"><p><%=bb.getSubject()%><p></td>
+	<td class="2td" colspan="3" height=52><a href="icontent.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>">
+	<p><%=bb.getSubject()%><p></a></td>
 	</tr>
 		
 	<tr class="3r">

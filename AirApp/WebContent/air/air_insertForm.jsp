@@ -16,6 +16,10 @@
 	
 	String id = (String)session.getAttribute("id");
 
+	if(!(id.equals("admin"))) {
+		response.sendRedirect("../main/main.jsp");
+	}
+	
 	Date now = new Date(new java.util.Date().getTime());
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -14,9 +14,8 @@
 <div id="map">
 	<%
 		request.setCharacterEncoding("UTF-8");
-	
-		String id = (String)session.getAttribute("id");
 		
+		String id = (String)session.getAttribute("id");
 		
 		Date now = new Date(new java.util.Date().getTime());
 

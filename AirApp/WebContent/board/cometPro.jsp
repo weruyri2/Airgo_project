@@ -16,6 +16,7 @@
 		request.setCharacterEncoding("utf-8");
 		
 		String id = (String)session.getAttribute("id");	
+		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		int board_num = Integer.parseInt(request.getParameter("board_num"));	
 		String content = request.getParameter("content");
 		
@@ -39,8 +40,11 @@
 		cdao.insertComet(cb); 
 		
 		// 페이지 이동 - list.jsp
-		response.sendRedirect("../board/boardList.jsp");
 		%>
+		<script type="text/javascript">
+			location.href="content.jsp?num=<%=board_num%>&pageNum=<%=pageNum%>";
+		
+		</script>
 	
 </body>
 </html>

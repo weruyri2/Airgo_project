@@ -14,10 +14,12 @@
 <div id="map">
 <%
 
-	String id = (String) session.getAttribute("id");
+	request.setCharacterEncoding("UTF-8");
 	
-	if(id == null) {
-		response.sendRedirect("loginForm.jsp");
+	String id = (String)session.getAttribute("id");
+	
+	if(!(id.equals("admin"))) {
+		response.sendRedirect("../main/main.jsp");
 	}
 	
 	MemberDAO mdao = new MemberDAO();

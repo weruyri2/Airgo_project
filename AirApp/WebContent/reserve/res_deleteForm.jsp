@@ -11,12 +11,10 @@
 
 <div id="map">
 	<%
-		String id = (String) session.getAttribute("id");
-	
-		if(id == null) {
-			response.sendRedirect("loginForm.jsp");
-		}
-	
+		request.setCharacterEncoding("UTF-8");
+		
+		String id = (String)session.getAttribute("id");
+
 		String resname = request.getParameter("resname");
 	%>
 	

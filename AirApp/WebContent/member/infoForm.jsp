@@ -34,6 +34,8 @@
 		MemberBean mb = mdao.getMember(id);
 		
 		System.out.println(mb);
+		
+		if(mb!=null) {
 
 	%>
 
@@ -75,6 +77,8 @@
 </div>
 
 </div>
+
+<%} %>
 
 </div>
 </body>

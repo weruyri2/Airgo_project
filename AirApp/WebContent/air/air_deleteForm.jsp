@@ -11,6 +11,14 @@
 
 <div id="map">
 <%
+	request.setCharacterEncoding("UTF-8");
+	
+	String id = (String)session.getAttribute("id");
+	
+	if(!(id.equals("admin"))) {
+		response.sendRedirect("../main/main.jsp");
+	}
+	
 	String airname = (String)request.getParameter("airname");
 
 %>

@@ -9,6 +9,8 @@
 </head>
 <body>
 	<%
+		request.setCharacterEncoding("UTF-8");
+		
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 		

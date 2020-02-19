@@ -64,13 +64,13 @@
 	 
 	 <script type="text/javascript"> 
  		alert("비행기 예약 성공");
- 		location.href="res_info.jsp";
+ 		location.href="res_search.jsp";
 	 </script> 
 	 
 	 <%}else if(check==-2){ %>
 	 	 <script type="text/javascript"> 
  		alert("좌석 수가 없습니다.");
- 		location.href="res_info.jsp";
+ 		location.href="res_search.jsp";
 	 </script> 
 	 
 	 <%}else{ %>

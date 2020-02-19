@@ -118,7 +118,7 @@
 			var formId = document.fr.id.value;
 			
 			if(formId == ""){
-				alert("id정보를 입력하세요. ");
+				alert("아이디를 입력하세요. ");
 				document.fr.id.focus();
 				return false;
 			}else if( !(4<=formId.length && formId.length<=12) ){

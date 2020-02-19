@@ -78,7 +78,7 @@ BoardBean bb = bdao.getBoard(num);
 	<td width="20" rowspan="2">내용</td>
 	<%if(bb.getFile()!=null){%>
 	<td colspan="5" align="char" height="auto">
-	<img src="<%=imgPath%>">
+	<img src="<%=imgPath%>" width=750 height=400>
 	<%} %>
 	</td>
 	</tr>
@@ -121,12 +121,14 @@ BoardBean bb = bdao.getBoard(num);
 	<form action="cometPro.jsp" method="post">
 	<table class="tab">
 	 <tr>
-	 <td class="com1" 	align="center">Comment
+	 <td class="com1" 	align="center">
+	 <p>Comment</p>
 	 </td>
 	 <td class="com2">
 	 <input type="submit" value="댓글쓰기" >
 	 <textarea rows="10" cols="20" name="content"></textarea>
 	 	<input type="hidden" name="board_num" value="<%=bb.getNum()%>">
+		<input type="hidden" name="pageNum" value="<%=pageNum%>">
 	</td>
 	</tr>
 	

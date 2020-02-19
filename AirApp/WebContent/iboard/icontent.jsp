@@ -92,9 +92,7 @@ iBoardBean bb = bdao.getBoard(num);
 		<input type="button" value="삭제하기"
 			onclick="location.href='ideleteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';"
 			>
-		<input type="button" value="답글쓰기"
-			onclick="location.href='ireWriteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>&re_lev=<%=bb.getRe_lev()%>&re_ref=<%=bb.getRe_ref()%>&re_seq=<%=bb.getRe_seq()%>';"
-		>
+		
 		<input type="button" value="목록보기" 
 		onclick="location.href='iboardList.jsp?pageNum=<%=pageNum%>';">
 		</td>

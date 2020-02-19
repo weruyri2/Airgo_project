@@ -58,7 +58,7 @@
 		System.out.println("수정 없음 !");
 		%>
 		<script type="text/javascript">
-		alert("아이디 없음 !");
+		alert("비밀번호 없음 !");
 		history.back();
 		</script>	
 		<%	

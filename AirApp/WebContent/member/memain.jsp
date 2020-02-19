@@ -32,7 +32,7 @@
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	String today = sdf.format(now);
 	
-// 	response.sendRedirect("infoForm.jsp");
+	response.sendRedirect("infoForm.jsp");
 	
 %>
 
