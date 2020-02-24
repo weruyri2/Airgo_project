@@ -18,16 +18,7 @@
 		String OFileName = "";
 	
 		//파일 업로드
-		
-/* 		new MultipartRequest(
-				reuqest(내장객체정보),
-				파일을 업로드할 폴더(물리적위치),
-				파일의 최대 크기,
-				인코딩방식(한글처리),
-				동일한 파일명에 대한 파일이름변경처리객체
-				
-				); */
-		
+	
 		// 파일을 업로드할 폴더 (물리적 위치)
 		// => "upload"폴더를 사용해서 가상경로로 사용
 		String realPath = request.getRealPath("/upload");

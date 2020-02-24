@@ -42,10 +42,7 @@
 					new DefaultFileRenamePolicy()
 					);		
 			
-		// 게시판글 저장
-		// 글쓴이, 비밀번호, 제목, 내용, 첨부파일 => 전달받아서 DB로 전달
-		
-		// 자바빈 객체 생성
+
 		iBoardBean bb = new iBoardBean();
 		
 		bb.setName(multi.getParameter("name"));
@@ -59,23 +56,16 @@
 		fileName = multi.getParameter("fileName");
 		
 		imgName = multi.getParameter("imgName");
-		
-		// 다수의 파일 업로드시
+
 		Enumeration files = multi.getFileNames();
 		
 		String file1 = (String)files.nextElement();
 		fileName = multi.getFilesystemName(file1);
 		OFileName = multi.getOriginalFileName(file1);
-//		파일이 여러개일 경우 추가해야함.
-//			String file2 = (String)files.nextElement();
-//			fileName = multi.getFilesystemName(file2);
-//			OFileName = multi.getOriginalFileName(file2);
+
 		
 		System.out.println("파일 이름 : " + fileName);		
 		System.out.println("파일 이름 원본 : " + OFileName);		
-		
-		
-		
 		
 		
 		System.out.println("파일 업로드 중 정보 확인 : " + bb.toString());
@@ -83,14 +73,12 @@
 		System.out.println("사용자 올린 원본 이름 파일: " + multi.getOriginalFileName("file"));
 		
 		bb.setIp(request.getRemoteAddr());
-		///////////////////////////////////////
-		//디비 처리객체 생성
-		
+
 		iBoardDAO bdao = new iBoardDAO();
-		// 메서드 호출 : insertBoard(bb);
+
 		bdao.insertBoard(bb);
 		
-		// 페이지 이동
+
 		String imgPath = conPath+"\\"+fileName;
 		
 		response.sendRedirect("iboardList.jsp");

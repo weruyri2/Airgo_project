@@ -66,8 +66,7 @@
 <h3>사진 게시판</h3>
 		
 	<%
-// 		for(int i=0; i< boardList.size(); i++){
-// 			BoardBean bb = (BoardBean)boardList.get(i);
+
 	if(iboardList != null) {
 			for(int i=0; i<iboardList.size(); i++){
 				iBoardBean bb = (iBoardBean)iboardList.get(i);

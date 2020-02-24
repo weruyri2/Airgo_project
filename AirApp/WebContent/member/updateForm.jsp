@@ -26,7 +26,7 @@
 		<%
 	}
      
-     // 디비처리 객체 MemberDAO 생성
+
      MemberDAO mdao = new MemberDAO();
      
      // id정보에 해당하는 회원의 모든정보 필요.

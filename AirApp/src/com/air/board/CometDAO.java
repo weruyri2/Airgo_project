@@ -41,7 +41,7 @@ public class CometDAO {
 	}
 	///////////////////////////////////////////////
 
-	
+	//cometList(board_num)
 	public ArrayList<CometBean> cometList(int num){
 		
 		ArrayList<CometBean> cometList = new ArrayList<CometBean>();
@@ -69,7 +69,6 @@ public class CometDAO {
 			
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			closeDB();
@@ -77,8 +76,9 @@ public class CometDAO {
 
 		return cometList;
 	}
+	//cometList(board_num)
 	
-	
+	//insertComet(CometBean cb)
 	public void insertComet(CometBean cb) {
 		
 		int num = 0;
@@ -135,7 +135,7 @@ public class CometDAO {
 		
 		
 	}
-	//insertBoard(bb)
+	//insertComet(CometBean cb)
 	
 	
 	

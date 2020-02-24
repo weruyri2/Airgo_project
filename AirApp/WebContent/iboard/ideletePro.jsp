@@ -10,17 +10,15 @@
 <body>
 
 	<%
-		//한글 처리
+
 		request.setCharacterEncoding("UTF-8");
-		//파라미터값 저장
+
 		int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");
 		String pass = request.getParameter("pass");
-		
-		//BoardDAO 객체 생성
+
 		iBoardDAO bdao = new iBoardDAO();
-		//->결과에 따라서 처리
-		// - deleteBoard(글번호,비밀번호);
+
 		int check = bdao.deleteBoard(num, pass);
 		
 		if(check==1) {

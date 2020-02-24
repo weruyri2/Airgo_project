@@ -46,6 +46,7 @@ public class ReserveDAO {
 	///////////////////////////////////////////////
 	
 	
+	//serchAirplane(String depart, String arrive,Date start,Date end)
 	public ArrayList serchAirplane(String depart, String arrive,Date start,Date end) {
 		
 		ArrayList<AirplaneBean> airplaneList = new ArrayList<AirplaneBean>();
@@ -85,8 +86,10 @@ public class ReserveDAO {
 		
 		return airplaneList;
 	}
+	//serchAirplane(String depart, String arrive,Date start,Date end)
 	
 	
+	//insertReserve(ReserveBean rb)
 	public int insertReserve(ReserveBean rb) {
 		int check = -1;
 		
@@ -139,10 +142,9 @@ public class ReserveDAO {
 		
 		return check;
 		
-		
-		
-		
+			
 	}
+	//insertReserve(ReserveBean rb)
 	
 	
 	//getReserveList
@@ -183,7 +185,11 @@ public class ReserveDAO {
 		
 		
 	}
+	//getReserveList
 	
+	
+	
+	//updateReserve(ReserveBean rb)
 	public int updateReserve(ReserveBean rb) {
 		int check = -1;
 		
@@ -266,7 +272,10 @@ public class ReserveDAO {
 		return check;
 			
 	}
+	//updateReserve(ReserveBean rb)
 	
+	
+	//ReserveBean getReserve(String resname)
 	public ReserveBean getReserve(String resname){
 		
 		ReserveBean rb = new ReserveBean();
@@ -299,5 +308,8 @@ public class ReserveDAO {
 		
 		return rb;
 	}
+	//ReserveBean getReserve(String resname)
+	
+	
 	
 }

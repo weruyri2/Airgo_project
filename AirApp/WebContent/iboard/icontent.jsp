@@ -12,21 +12,16 @@
 <body>
 <div id="map">
 <%
-//*페이지 이동시 전달되는 파라미터값 있을경우 항상 먼저 저장(처리)해야한다.
-//~/content.jsp?num=5&pageNum=2
-//파라미터값 저장 num(int), pageNum(String)
 
 int num = Integer.parseInt(request.getParameter("num"));
 String pageNum = request.getParameter("pageNum");
 
-//DB 처리 객체 BoardDAO 생성
+
 iBoardDAO bdao = new iBoardDAO();
 
-//게시판 글의 조회수를 1증가
 bdao.updateReadCount(num);
 
 iBoardBean bb = bdao.getBoard(num);
-//num에 해당하는 글정보를 가져오는 메서드
 
 		
 		String conPath = request.getContextPath()+"/upload";

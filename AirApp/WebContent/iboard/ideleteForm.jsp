@@ -19,7 +19,7 @@
 
 	
 	<%
-		//파라미터값 저장 (num,pageNum)
+
 		int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");	
 	%>

@@ -15,28 +15,31 @@
  <h1>WebContent/member/updatePro.jsp</h1>
  
  <%
- 	// 세션값 처리
+
  	String id =(String) session.getAttribute("id");
      if(id == null){
     	 response.sendRedirect("loginForm.jsp");
      }
- 	//한굴처리
+
  	request.setCharacterEncoding("UTF-8");
- 	//전달되는 파라미터를 저장(액션태그 사용 자바빈의 형태로 저장)
+
  	%>
  	<jsp:useBean id="mb" class="com.air.member.MemberBean" />
  	<jsp:setProperty property="*" name="mb"/>
  	<%
  	System.out.println("수정할 정보 : " + mb);
  	
- 	//전달받은 정보를 DB에 가져가서 수정
- 	//MemberDAO 객체 생성
+
  	MemberDAO mdao = new MemberDAO();
  	
  	int check = mdao.updateMember(mb);
  	
 	System.out.println("check : " +check);
 	
+ 	//정수형타입 결과 0, 1, -1
+ 	//1 : 수정완료 - main페이지이동
+ 	//0 : 비밀번호 오류 - 뒤로가기
+ 	//-1 : 아이디 없음 - 뒤로가기
 	if(check == 1){
 		System.out.println("정보 수정 완료");
 		%>
@@ -54,7 +57,6 @@
 		</script>
 		<%
 	}else {
-		//check == -1
 		System.out.println("수정 없음 !");
 		%>
 		<script type="text/javascript">
@@ -63,22 +65,9 @@
 		</script>	
 		<%	
 	}
-	
- 	//UpdateMember(수정할 자바빈객체)
-	
- 	//정수형타입 결과 0, 1, -1
- 	//1 : 수정완료 - main페이지이동
- 	//0 : 비밀번호 오류 - 뒤로가기
- 	//-1 : 아이디 없음 - 뒤로가기
- 
-	
-	
-	
-	
-	
-			
 
-	//a링크 사용 main페이지 이동
+ 
+
 %>
 </body>
 </html>

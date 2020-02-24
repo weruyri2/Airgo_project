@@ -23,9 +23,8 @@
   	String airname = request.getParameter("airname");
      
      
-     // 디비처리 객체 MemberDAO 생성
      AirplaneDAO adao = new AirplaneDAO();
-     // id정보에 해당하는 회원의 모든정보 필요.
+
      AirplaneBean ab = adao.getAirPlane(airname);
      
   %>

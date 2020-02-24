@@ -76,8 +76,7 @@
 
 	
 	<%
-// 		for(int i=0; i< boardList.size(); i++){
-// 			BoardBean bb = (BoardBean)boardList.get(i);
+
 	if(boardList != null) {
 			for(int i=0; i<boardList.size(); i++){
 				BoardBean bb = (BoardBean)boardList.get(i);

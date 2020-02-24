@@ -34,7 +34,7 @@
 		</script>
 		<%
 	}else{
-		System.out.println("비밀 번호 오류 !");
+		System.out.println("참조 값 확인 !");
 		%>
 		<script type="text/javascript">
 		alert("비행기 삭제 실패 !");

@@ -27,8 +27,7 @@
 			<%
 		}	
 		
-		//DB에 있는 로그인한 유저의 정보를 가져와서
-		// 해당페이지에 출력
+
 		MemberDAO mdao = new MemberDAO();
 		
 		MemberBean mb = mdao.getMember(id);

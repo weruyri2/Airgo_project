@@ -12,8 +12,7 @@
 <body>
 <div id="map">
 	<%
-		// 글정보를 가져와서 페이지에 출력
-		// BoardDAO 객체 생성
+
 		int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");
 
@@ -21,9 +20,7 @@
 		iBoardDAO bdao = new iBoardDAO();
 		
 		iBoardBean bb = bdao.getBoard(num);
-		
-		// 사용자 정보 변경
-		// 변경된 정보를 DB에 저장 (pro페이지에서 처리)
+
 	
 	%>
 	

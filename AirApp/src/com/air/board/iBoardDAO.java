@@ -44,6 +44,7 @@ public class iBoardDAO {
 	}
 	///////////////////////////////////////////////
 	
+	
 	// insertBoard(bb)
 	public void insertBoard(iBoardBean bb) {
 		System.out.println("BoardDAO-insetBoard 호출 !!");
@@ -112,25 +113,8 @@ public class iBoardDAO {
 	//insertBoard(bb)
 	
 	
-	/*public BoardDAO() {
-		//alt+shift+z
-		try {
-			getConnection();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
-	private void getConnection() throws Exception {
-		// TODO Auto-generated method stub
-		Context initCtx = new InitialContext();
-		
-		
-		
-	}*/
-	
-	
+	//getBoardCount()
 	public int getBoardCount() {
 		
 		int cnt = 0;
@@ -164,8 +148,11 @@ public class iBoardDAO {
 
 		
 		return cnt;
-	}//getBoardCount()
+	}
+	//getBoardCount()
 	
+	
+	//getBoardList1(int idx, int page)
 	public ArrayList getBoardList1(int idx, int page) {
 		ArrayList<iBoardBean> BoardList = new ArrayList<iBoardBean>();
 			
@@ -211,18 +198,19 @@ public class iBoardDAO {
 		
 
 		return BoardList;
-	} //getBoardList
+	}
+	//getBoardList1(int idx, int page)
 	
+	
+	//getBoardListAll()
 	public List getBoardListAll() {
 		
 		List boardList = new ArrayList();
 		
 		try {
-			
-			// 1,2 디비연결
+
 			con = getConn();
 			
-			// 3 sql
 			sql = "select * from iboard";
 			
 			pstmt = con.prepareStatement(sql);
@@ -259,8 +247,11 @@ public class iBoardDAO {
 		
 		return boardList;
 		
-	}//getBoardListAll
+	}
+	//getBoardListAll()
 	
+	
+	//getBoardList(int startRow, int pageSize)
 	public ArrayList<iBoardBean> getBoardList(int startRow, int pageSize) {
 		
 		ArrayList<iBoardBean> boardList = new ArrayList<iBoardBean>();
@@ -277,9 +268,6 @@ public class iBoardDAO {
 			pstmt.setInt(2, pageSize); // 페이지 크기
 			
 			rs = pstmt.executeQuery();
-			
-			
-			// DB 정보 -> BoardBean 저장 -> boardList 한칸에 저장
 			
 			while(rs.next()){
 				iBoardBean bb = new iBoardBean();
@@ -311,10 +299,13 @@ public class iBoardDAO {
 
 		
 		return boardList;
-	}//getBoardList
+	}
+	//getBoardList(int startRow, int pageSize)
 	
+	
+	//updateReadCount(int num)
 	public void updateReadCount(int num) {
-		//디비 연결
+
 		try {
 			
 			con = getConn();
@@ -332,7 +323,6 @@ public class iBoardDAO {
 
 			System.out.println("글 조회수 1증가 완료");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			closeDB();
@@ -340,9 +330,10 @@ public class iBoardDAO {
 		
 
 	
-	}//updateReadCount();
+	}
+	//updateReadCount(int num)
 	
-	
+	//getBoard(int num)
 	public iBoardBean getBoard(int num) {
 		iBoardBean bb = null;
 		
@@ -386,9 +377,11 @@ public class iBoardDAO {
 		}
 
 		return bb;
-	}// getBoard(num)
+	}
+	//getBoard(int num)
 	
 	
+	//updateBoard(iBoardBean bb)
 	public int updateBoard(iBoardBean bb){
 		
 		int check = -1;
@@ -449,9 +442,10 @@ public class iBoardDAO {
 
 		
 	}
-	//updateBoard(bb)
+	//updateBoard(iBoardBean bb)
 	
 	
+	//deleteBoard(int num, String pass)
 	public int deleteBoard(int num, String pass) {
 		int check = -1;
 		
@@ -496,25 +490,24 @@ public class iBoardDAO {
 		
 		return check;
 		
-	}//deleteBoard("num","pass");
+	}
+	//deleteBoard(int num, String pass)
 	
 	
+	//reInsertBoard(iBoardBean bb)
 	public void reInsertBoard(iBoardBean bb){
 		
 		int num = 0;
-		// 디비 연결
-	
-		//3 SQL 작성
+
 
 		try {
 			con = getConn();
 			
 			sql = "select max(num) from iboard";
 			pstmt = con.prepareStatement(sql);
-			//4 SQL 실행
+
 			rs = pstmt.executeQuery();
-			
-			//5 rs
+
 			if(rs.next()){
 //				num = rs.getInt("max(num)") + 1;
 				num = rs.getInt(1) + 1;
@@ -524,22 +517,6 @@ public class iBoardDAO {
 			System.out.println("답글 번호 : "+num);
 			
 			
-			
-
-//			sql = "select count(*) from board where re_ref = ?";
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setInt(1, bb.getRe_ref());
-//			rs = pstmt.executeQuery();
-//			
-//			int tt = rs.getInt("count(*)");
-//			
-//			System.out.println("tt 값 : "+tt);
-//			
-//			if(rs.next()){
-			//답글 순서 재배치/(update)
-			// re_ref(같은그룹), re_seq 기존의 값보다 큰 값이 있을경우
-			// 순서변경하기 위해 re_seq+1
-			//3
 			sql = "update iboard set re_seq=re_seq+1 "
 					+ "where re_ref=? and re_seq>? ";
 			
@@ -548,7 +525,7 @@ public class iBoardDAO {
 			pstmt.setInt(1, bb.getRe_ref());
 			pstmt.setInt(2, bb.getRe_seq());
 			
-			//4
+
 			pstmt.executeUpdate();
 			System.out.println(" 답글 재정렬 완료 @@");
 			
@@ -591,17 +568,9 @@ public class iBoardDAO {
 		
 		
 
-	}//reInsertBoard(bb);
-	
-	
-	public void imgInsertBoard(BoardBean bb){
-		
-		if(bb.getFile()!=null){
-			
-		}
-		
 	}
+	//reInsertBoard(iBoardBean bb)
 	
-	
+
 
 }

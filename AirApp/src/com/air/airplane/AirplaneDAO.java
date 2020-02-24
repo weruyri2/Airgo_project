@@ -44,6 +44,7 @@ public class AirplaneDAO {
 	///////////////////////////////////////////////
 	
 	
+	//insertAirplane(AirplaneBean ab)
 	public void insertAirplane(AirplaneBean ab) {
 		
 		try {
@@ -71,8 +72,9 @@ public class AirplaneDAO {
 			closeDB();
 		}
 	}
+	//insertAirplane(AirplaneBean ab)
 	
-	
+	//getAirPlane(String airname)
 	public AirplaneBean getAirPlane(String airname) {
 		System.out.println("getAirPlane 호출");
 		
@@ -111,7 +113,10 @@ public class AirplaneDAO {
 
 		return ab;
 	}
+	//getAirPlane(String airname)
 	
+	
+	//getAirplaneList()
 	public ArrayList getAirplaneList() {
 	
 		ArrayList<AirplaneBean> airplaneList = new ArrayList<AirplaneBean>();
@@ -147,7 +152,10 @@ public class AirplaneDAO {
 				
 		return airplaneList;
 	}
+	//getAirplaneList()
 	
+	
+	//updateAirplane(AirplaneBean ab)
 	public int updateAirplane(AirplaneBean ab) {
 		int check = -1;
 		
@@ -179,7 +187,10 @@ public class AirplaneDAO {
 		
 		return check;
 	}
+	//updateAirplane(AirplaneBean ab)
 	
+	
+	//deleteAirplane(String airname)
 	public int deleteAirplane(String airname) {
 		int check = -1;
 		
@@ -203,5 +214,8 @@ public class AirplaneDAO {
 		
 		return check;
 	}
+	//deleteAirplane(String airname)
+	
+	
 	
 }

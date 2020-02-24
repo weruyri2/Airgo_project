@@ -36,10 +36,10 @@
 		System.out.println("cb객체에 저장된 정보 : "+cb.toString());
 
 		CometDAO cdao = new CometDAO();
-		// 글쓰기 동작 - insertBoard(bb)
+	
 		cdao.insertComet(cb); 
 		
-		// 페이지 이동 - list.jsp
+	
 		%>
 		<script type="text/javascript">
 			location.href="content.jsp?num=<%=board_num%>&pageNum=<%=pageNum%>";

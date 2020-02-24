@@ -44,6 +44,7 @@ public class BoardDAO {
 	}
 	///////////////////////////////////////////////
 	
+	
 	// insertBoard(bb)
 	public void insertBoard(BoardBean bb) {
 		System.out.println("BoardDAO-insetBoard 호출 !!");
@@ -105,32 +106,12 @@ public class BoardDAO {
 			closeDB();
 		}
 
-	
-		
-		
+
 	}
-	//insertBoard(bb)
+	// insertBoard(bb)
+
 	
-	
-	/*public BoardDAO() {
-		//alt+shift+z
-		try {
-			getConnection();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	private void getConnection() throws Exception {
-		// TODO Auto-generated method stub
-		Context initCtx = new InitialContext();
-		
-		
-		
-	}*/
-	
-	
+	//getBoardCount()
 	public int getBoardCount() {
 		
 		int cnt = 0;
@@ -164,8 +145,11 @@ public class BoardDAO {
 
 		
 		return cnt;
-	}//getBoardCount()
+	}
+	//getBoardCount()
 	
+	
+	//getBoardList1(int idx, int page)
 	public ArrayList getBoardList1(int idx, int page) {
 		ArrayList<BoardBean> BoardList = new ArrayList<BoardBean>();
 			
@@ -211,8 +195,11 @@ public class BoardDAO {
 		
 
 		return BoardList;
-	} //getBoardList
+	}
+	//getBoardList1(int idx, int page)
 	
+	
+	//getBoardListAll()
 	public List getBoardListAll() {
 		
 		List boardList = new ArrayList();
@@ -259,8 +246,11 @@ public class BoardDAO {
 		
 		return boardList;
 		
-	}//getBoardListAll
+	}
+	//getBoardListAll()
 	
+	
+	//getBoardList(int startRow, int pageSize)
 	public ArrayList<BoardBean> getBoardList(int startRow, int pageSize) {
 		
 		ArrayList<BoardBean> boardList = new ArrayList<BoardBean>();
@@ -311,8 +301,11 @@ public class BoardDAO {
 
 		
 		return boardList;
-	}//getBoardList
+	}
+	//getBoardList(int startRow, int pageSize)
 	
+	
+	//updateReadCount(int num)
 	public void updateReadCount(int num) {
 		//디비 연결
 		try {
@@ -340,9 +333,11 @@ public class BoardDAO {
 		
 
 	
-	}//updateReadCount();
+	}
+	//updateReadCount(int num)
 	
 	
+	//getBoard(int num)
 	public BoardBean getBoard(int num) {
 		BoardBean bb = null;
 		
@@ -386,9 +381,11 @@ public class BoardDAO {
 		}
 
 		return bb;
-	}// getBoard(num)
+	}
+	//getBoard(int num)
 	
 	
+	//updateBoard(BoardBean bb)
 	public int updateBoard(BoardBean bb){
 		
 		int check = -1;
@@ -449,9 +446,10 @@ public class BoardDAO {
 
 		
 	}
-	//updateBoard(bb)
+	//updateBoard(BoardBean bb)
 	
 	
+	//deleteBoard(int num, String pass)
 	public int deleteBoard(int num, String pass) {
 		int check = -1;
 		
@@ -496,9 +494,11 @@ public class BoardDAO {
 		
 		return check;
 		
-	}//deleteBoard("num","pass");
+	}
+	//deleteBoard(int num, String pass)
 	
 	
+	//reInsertBoard(BoardBean bb)
 	public void reInsertBoard(BoardBean bb){
 		
 		int num = 0;
@@ -524,22 +524,6 @@ public class BoardDAO {
 			System.out.println("답글 번호 : "+num);
 			
 			
-			
-
-//			sql = "select count(*) from board where re_ref = ?";
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setInt(1, bb.getRe_ref());
-//			rs = pstmt.executeQuery();
-//			
-//			int tt = rs.getInt("count(*)");
-//			
-//			System.out.println("tt 값 : "+tt);
-//			
-//			if(rs.next()){
-			//답글 순서 재배치/(update)
-			// re_ref(같은그룹), re_seq 기존의 값보다 큰 값이 있을경우
-			// 순서변경하기 위해 re_seq+1
-			//3
 			sql = "update board set re_seq=re_seq+1 "
 					+ "where re_ref=? and re_seq>? ";
 			
@@ -591,16 +575,8 @@ public class BoardDAO {
 		
 		
 
-	}//reInsertBoard(bb);
-	
-	
-	public void imgInsertBoard(BoardBean bb){
-		
-		if(bb.getFile()!=null){
-			
-		}
-		
 	}
+	//reInsertBoard(BoardBean bb)
 	
 	
 

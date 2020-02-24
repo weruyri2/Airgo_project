@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>AIRGO</title>
 <link href="../css/leftside.css" rel="stylesheet">
 <link href="../css/main.css" rel="stylesheet">
 </head>

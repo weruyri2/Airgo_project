@@ -11,14 +11,14 @@
 <body>
 	
 	 <%
- 	// 세션값 처리
+
  	String id =(String) session.getAttribute("id");
      if(id == null){
     	 response.sendRedirect("air_main.jsp");
      }
- 	//한글처리
+
  	request.setCharacterEncoding("UTF-8");
- 	//전달되는 파라미터를 저장(액션태그 사용 자바빈의 형태로 저장)
+
  	
  		String start = (String)request.getParameter("start");
 		String end = (String)request.getParameter("end");
@@ -42,8 +42,6 @@
  	
  	System.out.println("수정할 정보 : " + ab);
  	
- 	//전달받은 정보를 DB에 가져가서 수정
- 	//MemberDAO 객체 생성
  	AirplaneDAO adao = new AirplaneDAO();
  	
  	int check = adao.updateAirplane(ab);

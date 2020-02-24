@@ -12,16 +12,13 @@
 	<h1>WebContent/board/updatePro.jsp</h1>
 
 	<%
-	// updateForm.jsp 페이지에서 전달된 정보를 DB에 저장
-	// => 수정된 정보를 저장
-	
-	//한글처리
+
 	request.setCharacterEncoding("UTF-8");
 
-	//파라미터 pageNUm 저장
+
 	String pageNum = request.getParameter("PageNum");
 	
-	// 전달정보( 글번호(hidden), 글쓴이, 비밀번호, 제목, 내용 )=>액션태그 사용 저장
+
 	%>
 	<jsp:useBean id="bb" class="com.air.board.BoardBean" />
 	<jsp:setProperty property="*" name="bb"/>
@@ -32,15 +29,10 @@
 	<%
 	System.out.println("bb : " +bb);
 
-	// BoardDAO 객체 생성 -> updateBoard(BoardBean객체) 사용
-// 	BoardDAO bdao = new BoardDAO();
- 	int check = bdao.updateBoard(bb);
- 	//check : 1	=>"정보 수정 완료", boardList.jsp 이동(+pageNum)
- 	//check : 0	=>"비밀번호 오류", 뒤로가기
- 	//check : -1	="글번호 없음", 뒤로가기
- 	
 
- 		
+ 	int check = bdao.updateBoard(bb);
+
+ 
 	 	if(check==1){
 	 		%>
 	 			<script type="text/javascript">
